@@ -11,13 +11,20 @@
   <label for="time">Time</label>
   <input type="time" name="time" required="true">
 
+  <label for="adress">Adress</label>
+  <input type="text" name="adress" required="true">
+
   <label for="description">Description</label>
   <p>Short description about your plans and your mission. What do you want to change?</p>
-  <input type="text" name="description" required="true">
+  <input type="textarea" name="description" required="true">
 
   <label for="requirements">Requirements</label>
   <p>What do your participants have to do? Is there anything in particular they will need (Equipement / Clothing)?</p>
-  <input type="text" name="requirements" required="true">
+  <input type="textarea" name="requirements" required="true">
+  <input type="checkbox" name="car" value="car"><p>Will you need someone with a car?</p>
+
+  <label for ="amount">Amount of needed Helpers</label>
+  <input type="number" name="amount" required="true">
 
   <p class="label">Tags</p>
   <form id="tags" action="" method="post">
@@ -35,7 +42,7 @@
   
   <p class="label">Location</p>
   <p>Just drag and drop to set your meeting point.</p>
-  <div id="map"></div>
+  <div class="map"></div>
 
   <button type='submit'>That'll be my event.</button>
 
