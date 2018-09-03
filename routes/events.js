@@ -10,6 +10,12 @@ router.get("/create-event", (req, res, next) => {
   res.render("event-create");
 });
 
+router.get("/event", (req, res, next) => {
+  Event.findOne({}).then(data => {
+    res.render("event-single", data);
+  });
+});
+
 router.post("/create-event", (req, res, next) => {
   const {
     title,
