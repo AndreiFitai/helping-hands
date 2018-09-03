@@ -1,18 +1,18 @@
 <h1>Create an Event</h1>
 <p id="disclaimer">Something about rules and stuff</p>
 
-<form id="event-create" action="" method="post">
+<form id="event-create" action="/events/create-event" method="post">
   <label for="title">Event Title</label>
   <input type="text" name="title" required="true">
-  
+
   <label for="date">Date</label>
   <input type="date" name="date" required="true">
 
   <label for="time">Time</label>
   <input type="time" name="time" required="true">
 
-  <label for="adress">Adress</label>
-  <input type="text" name="adress" required="true">
+  <label for="address">Adress</label>
+  <input type="text" name="address" required="true">
 
   <label for="description">Description</label>
   <p>Short description about your plans and your mission. What do you want to change?</p>
@@ -21,30 +21,32 @@
   <label for="requirements">Requirements</label>
   <p>What do your participants have to do? Is there anything in particular they will need (Equipement / Clothing)?</p>
   <input type="textarea" name="requirements" required="true">
-  <input type="checkbox" name="car" value="car"><p>Will you need someone with a car?</p>
+  <input type="checkbox" name="car" value="true"><p>Will you need someone with a car?</p>
 
-  <label for ="amount">Amount of needed Helpers</label>
+  <label for="amount">Amount of needed Helpers</label>
   <input type="number" name="amount" required="true">
 
   <p class="label">Tags</p>
+  <input type="checkbox" name="sports" value="true"><p class="tag">Sport</p>
+  <input type="checkbox" name="charity" value="true"><p class="tag">Charity</p>
+  <input type="checkbox" name="local" value="true"><p class="tag">Local</p>
+  <input type="checkbox" name="lgbt" value="true"><p class="tag">LGBTQ</p>
+  <input type="checkbox" name="artistical" value="true"><p class="tag">Art</p>
+  <input type="checkbox" name="politics" value="true"><p class="tag">Politics</p>
+  <input type="checkbox" name="educational" value="true"><p class="tag">Education</p>
 
-    <input type="checkbox" name="tag1" value="sport"><p class="tag">Sport</p>
-    <input type="checkbox" name="tag2" value="charity"><p class="tag">Charity</p>
-    <input type="checkbox" name="tag3" value="local"><p class="tag">Local</p>
-    <input type="checkbox" name="tag4" value="lgbtq"><p class="tag">LGBTQ</p>
-    <input type="checkbox" name="tag5" value="art"><p class="tag">Art</p>
-    <input type="checkbox" name="tag6" value="politics"><p class="tag">Politics</p>
-    <input type="checkbox" name="tag7" value="education"><p class="tag">Education</p>
+  <label for="img">Image</label>
+  <input type="file" name="photo">
 
-
-  <label for ="img">Image</label>
-  <input type="file" name="img">
-  
   <p class="label">Location</p>
   <p>Just drag and drop to set your meeting point.</p>
-  <div class="map"></div>
-
+  <div id="map"></div>
+  <input type="hidden" id="loc-pick-lat" name="lat" value=>
+  <input type="hidden" id="loc-pick-lng" name="lng" value=>
+  <br>
   <button type='submit'>That'll be my event.</button>
 
 </form>
 
+<script src="https://unpkg.com/location-picker/dist/location-picker.min.js"></script>
+<script src="/javascripts/locPicker.js"></script>
