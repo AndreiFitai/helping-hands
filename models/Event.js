@@ -20,7 +20,7 @@ const userSchema = new Schema({
     coordinates: [Number]
   },
   participants: [{
-    userId: String,
+    userId:
     { type: String,
       enum: ["Organizer", "Volunteer"],
       default: "Volunteer"}
