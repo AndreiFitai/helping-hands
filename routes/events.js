@@ -1,22 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const Event = require("../models/Event");
-const fs = require("fs");
 const multer = require("multer");
-const upload = multer({ dest: "./public/images/uploads/" });
-
+const upload = multer({
+  dest: "public/uploads/"
+});
+const Event = require("../models/Event")
 /* GET home page */
 router.get("/create-event", (req, res, next) => {
-  res.render("event-create");
+  res.render("event-create")
 });
 
-router.get("/event", (req, res, next) => {
-  Event.findOne({}).then(data => {
-    res.render("event-single", data);
-  });
-});
-
-router.post("/create-event", (req, res, next) => {
+router.post("/create-event", upload.single("photo"), (req, res, next) => {
+  const imgPath = req.file.path;
+  const imgName = req.file.filename;
+  console.log(imgName, imgPath)
   const {
     title,
     date,
@@ -37,30 +34,37 @@ router.post("/create-event", (req, res, next) => {
     lng
   } = req.body;
   new Event({
-    title,
-    date,
-    time,
-    address,
-    description,
-    needs: {
-      amount_of_ppl: amount,
-      need_desc: requirements,
-      car: car
-    },
-    tags: {
-      sports,
-      charity,
-      local,
-      lgbt,
-      artistical,
-      politics,
-      educational
-    },
-    location: { type: "Point", coordinates: [lng, lat] }
-  })
+      title,
+      date,
+      time,
+      address,
+      description,
+      pictures: {
+        path: imgPath,
+        name: imgName
+      },
+      needs: {
+        amount_of_ppl: amount,
+        need_desc: requirements,
+        car: car
+      },
+      tags: {
+        sports,
+        charity,
+        local,
+        lgbt,
+        artistical,
+        politics,
+        educational
+      },
+      location: {
+        type: "Point",
+        coordinates: [lng, lat]
+      }
+    })
     .save()
     .then(data => {
-      res.render("index");
+      res.send(data)
     });
 });
 
