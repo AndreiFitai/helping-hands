@@ -1,15 +1,36 @@
-const mongoose = require('mongoose');
-const Schema   = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: String,
-  password: String
-}, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+  email: String,
+  password: String,
+  facebookId: String,
+  picture: String,
+  role: {
+    type: String,
+    enum: ["Admin", "Moderator", "User"],
+    default: "User"
+  },
+  events: [],
+  options: {
+    biweekly_email: Boolean,
+    event_msg_email: Boolean,
+    direct_msg_email: Boolean
+  },
+  interests: {
+    interest_sports: Boolean,
+    interest_charity: Boolean,
+    interest_local: Boolean,
+    interest_lgbt: Boolean,
+    interest_artistical: Boolean,
+    interest_politics: Boolean,
+    interest_educational: Boolean
+  },
+  reported: {
+    reporter_id: String,
+    message: String,
+    votes: Boolean
   }
 });
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+module.exports = mongoose.model("User", userSchema);
