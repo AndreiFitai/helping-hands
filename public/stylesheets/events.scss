@@ -1,0 +1,43 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+$red: #f2616f;
+$yellow: #fffb76;
+$grey: #494949;
+$lightgrey: #e6e6e6;
+
+#map {
+  width: 100%;
+  height: 20vh;
+}
+#disclaimer {
+  text-align: center;
+}
+
+.event-single {
+
+  margin-bottom: 100px;
+
+  .practical {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .number {
+      display: flex;
+      flex-flow: row nowrap;
+
+      p:first-child {
+        margin-right: 10px;
+      }
+    }
+    p {
+      font-style: italic;
+    }
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 1.2em;
+    line-height: 3em;
+  }
+}
