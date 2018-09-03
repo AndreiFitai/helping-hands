@@ -16,23 +16,53 @@ const userSchema = new Schema({
   exp: Number,
   events: [],
   options: {
-    biweekly_email: Boolean,
-    event_msg_email: Boolean,
-    direct_msg_email: Boolean
+    biweekly_email: {
+      type: Boolean,
+      default: false
+    },
+    event_msg_email: {
+      type: Boolean,
+      default: false
+    },
+    direct_msg_email: {
+      type: Boolean,
+      default: false
+    }
   },
   interests: {
-    interest_sports: Boolean,
-    interest_charity: Boolean,
-    interest_local: Boolean,
-    interest_lgbt: Boolean,
-    interest_artistical: Boolean,
-    interest_politics: Boolean,
-    interest_educational: Boolean
+    interest_sports: {
+      type: Boolean,
+      default: false
+    },
+    interest_charity: {
+      type: Boolean,
+      default: false
+    },
+    interest_local: {
+      type: Boolean,
+      default: false
+    },
+    interest_lgbt: {
+      type: Boolean,
+      default: false
+    },
+    interest_artistical: {
+      type: Boolean,
+      default: false
+    },
+    interest_politics: {
+      type: Boolean,
+      default: false
+    },
+    interest_educational: {
+      type: Boolean,
+      default: false
+    }
   },
   reported: {
     reporter_id: String,
     message: String,
-    votes: Boolean
+    votes: Number
   }
 });
 
