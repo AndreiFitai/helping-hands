@@ -1,5 +1,8 @@
+<div class="container">
+
 <h1>Create an Event</h1>
 <p id="disclaimer">Something about rules and stuff</p>
+
 
 <form id="event-create" action="/events/create-event" method="post"  enctype="multipart/form-data">
   <label for="title">Event Title</label>
@@ -7,9 +10,24 @@
 
   <label for="date">Date</label>
   <input type="date" name="date" required="true">
+  <br>
 
   <label for="time">Time</label>
-  <input type="time" name="time" required="true">
+  <select>
+    <option value="8">8:00</option>
+    <option value="9">9:00</option>
+    <option value="10">10:00</option>
+    <option value="11">11:00</option>
+    <option value="12">12:00</option>
+    <option value="13">13:00</option>
+    <option value="14">14:00</option>
+    <option value="15">15:00</option>
+    <option value="16">16:00</option>
+    <option value="17">17:00</option>
+    <option value="18">18:00</option>
+  </select>
+  <br>
+
 
   <label for="address">Adress</label>
   <input type="text" name="address" required="true">
@@ -17,10 +35,12 @@
   <label for="description">Description</label>
   <p>Short description about your plans and your mission. What do you want to change?</p>
   <input type="textarea" name="description" required="true">
+  <br>
 
   <label for="requirements">Requirements</label>
   <p>What do your participants have to do? Is there anything in particular they will need (Equipement / Clothing)?</p>
   <input type="textarea" name="requirements" required="true">
+
   <input type="checkbox" name="car" value="true"><p>Will you need someone with a car?</p>
 
   <label for="amount">Amount of needed Helpers</label>
@@ -48,5 +68,9 @@
 
 </form>
 
+
+</div>
+
 <script src="https://unpkg.com/location-picker/dist/location-picker.min.js"></script>
 <script src="/javascripts/locPicker.js"></script>
+

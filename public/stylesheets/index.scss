@@ -1,0 +1,15 @@
+$red: #f2616f;
+$yellow: #fffb76;
+$grey: #494949;
+$lightgrey: #E6E6E6;
+
+.map {
+  height: 80vh;
+  background-color: $lightgrey;
+}
+#opener {
+  background-color: $yellow;
+  position: absolute;
+  margin-top: -65vh;
+  left: 0;
+}
