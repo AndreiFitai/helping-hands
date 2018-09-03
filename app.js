@@ -8,10 +8,10 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
+const fileUpload = require("express-fileupload");
 
 mongoose.Promise = Promise;
 mongoose
@@ -38,6 +38,7 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(fileUpload());
 
 // Express View engine setup
 
@@ -84,5 +85,8 @@ app.use("/", index);
 
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
+
+const eventRoutes = require("./routes/events");
+app.use("/events", eventRoutes);
 
 module.exports = app;
