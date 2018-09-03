@@ -6,11 +6,13 @@ const userSchema = new Schema({
   password: String,
   facebookId: String,
   picture: String,
+  bio: String,
   role: {
     type: String,
     enum: ["Admin", "Moderator", "User"],
     default: "User"
   },
+  exp: Number
   events: [],
   options: {
     biweekly_email: Boolean,
