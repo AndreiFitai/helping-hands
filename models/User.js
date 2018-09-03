@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   email: String,
+  facebookId: String,
   password: String,
   facebookId: String,
   picture: String,
@@ -12,7 +13,7 @@ const userSchema = new Schema({
     enum: ["Admin", "Moderator", "User"],
     default: "User"
   },
-  exp: Number
+  exp: Number,
   events: [],
   options: {
     biweekly_email: Boolean,
