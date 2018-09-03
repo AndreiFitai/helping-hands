@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Event = require("../models/Event");
-const upload = require("../utils/cloudinary");
 const fs = require("fs");
+const multer = require("multer");
+const upload = multer({ dest: "./public/images/uploads/" });
 
 /* GET home page */
 router.get("/create-event", (req, res, next) => {
@@ -49,11 +50,11 @@ router.post("/create-event", (req, res, next) => {
       politics,
       educational
     },
-    location: { type: "Point", coordinates: [lat, lng] }
+    location: { type: "Point", coordinates: [lng, lat] }
   })
     .save()
     .then(data => {
-      res.render("/index");
+      res.render("index");
     });
 });
 
