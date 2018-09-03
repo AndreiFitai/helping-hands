@@ -7,6 +7,7 @@ $lightgrey: #e6e6e6;
 
 @import "index.scss";
 @import "login.scss";
+@import "event-create.scss";
 
 // body {
 // 	@include media-breakpoint-up(md) {
@@ -83,7 +84,6 @@ h1 {
 }
 
 body {
-
   font-family: "Titillium Web", sans-serif;
   font-size: 18px;
 
@@ -139,7 +139,7 @@ input[type="checkbox"] {
 .tag {
   display: inline;
 }
-label {
+label, .label {
   font-weight: 700;
 }
 button {
@@ -150,7 +150,6 @@ button {
   padding: 10px;
   margin-bottom: 10px;
 }
-
 #facebook {
   background-color: $grey;
 }

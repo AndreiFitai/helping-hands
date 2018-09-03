@@ -10,3 +10,5 @@ npm-debug.log
 package-lock.json
 
 package.json
+
+./public/stylesheets/style.css
