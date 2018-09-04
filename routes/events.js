@@ -5,12 +5,10 @@ const upload = multer({
   dest: "public/images/uploads"
 });
 const Event = require("../models/Event");
+const { ensureLoggedIn } = require("connect-ensure-login");
 
-router.get("/create-event", (req, res, next) => {
-  if (!req.user) res.render("../views/auth/login");
-  else {
-    res.render("event-create");
-  }
+router.get("/create-event", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  res.render("event-create");
 });
 
 router.get("/event/:id", (req, res, next) => {
