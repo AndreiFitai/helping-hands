@@ -8,7 +8,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get(
-  "/user-profile/:id",
+  "/user-profile/",
   ensureLoggedIn("/auth/login"),
   (req, res, next) => {
     if (req.user._id === req.params.id || !req.params.id) {
@@ -27,6 +27,14 @@ router.get("/user-edit", ensureLoggedIn("/auth/login"), (req, res, next) => {
   User.find({ _id: req.user._id }).then(data => {
     res.render("user-edit", data[0]);
   });
+});
+
+router.get("/organization", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  res.render("organization");
+});
+
+router.get("/about", (req, res, next) => {
+  res.render("about");
 });
 
 module.exports = router;
