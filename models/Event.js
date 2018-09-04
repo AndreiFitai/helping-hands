@@ -59,7 +59,8 @@ const eventSchema = new Schema({
   },
   participants: [
     {
-      userId: {
+      userId: String,
+      role: {
         type: String,
         enum: ["Organizer", "Volunteer"],
         default: "Volunteer"
