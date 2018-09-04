@@ -1,47 +1,50 @@
 <div class="container">
 
-  <div class="login-container">
-    <h1>SIGN UP</h1>
-    <p>Let your local community know you're on board by registering and staying updated about events happening in your area.</p>
+    <div class="login-container">
+      <h1>SIGN UP</h1>
+      <p>Let your local community know you're on board by registering and staying updated about events happening in your
+        area.</p>
 
-    <form id="signup-form" action="/auth/signup" method="POST">
+      <form id="signup-form" action="/auth/signup" method="POST">
 
-      <input type="email" name="email" placeholder="Type in your E-mail" required="true">
-      <br>
-      <input type="password" name="password" placeholder="Choose a Password" required="true">
-      <br> {{!-- nice addition --}} {{!-- <input type="password" name="password-check" placeholder="Confirm your Password"
-        required="true">
-      <br> --}}
-      <button type='submit'>I'm ready to help!</button>
+        <input type="text" name="name" placeholder="Your Name here" required="true">
+        <br>
+        <input type="email" name="email" placeholder="Type in your E-mail" required="true">
+        <br>
+        <input type="password" name="password" placeholder="Choose a Password" required="true">
+        <br> {{!-- nice addition --}} {{!-- <input type="password" name="password-check" placeholder="Confirm your Password"
+          required="true">
+        <br> --}}
+        <button type='submit'>I'm ready to help!</button>
 
-    </form>
+      </form>
 
-    {{#if error}}
-    <p class="error-message">Sorry: {{error}}</p>
-    {{/if}}
+      {{#if error}}
+      <p class="error-message">Sorry: {{error}}</p>
+      {{/if}}
 
-    <a href="/auth/facebook"><button id="facebook">Sign up with Facebook</button></a>
+      <a href="/auth/facebook"><button id="facebook">Sign up with Facebook</button></a>
 
-  </div>
+    </div>
 
-  <div class="login-container">
-    <h1>LOG IN</h1>
+    <div class="login-container">
+      <h1>LOG IN</h1>
 
-    <form id="login-form" action="/auth/login" method="POST">
+      <form id="login-form" action="/auth/login" method="POST">
 
-      <input type="email" name="email" placeholder="Type in your E-mail" required="true">
-      <br>
-      <input type="password" name="password" placeholder="Your Password" required="true">
-      <br>
-      <button type='submit'>Let's help!</button>
+        <input type="email" name="email" placeholder="Type in your E-mail" required="true">
+        <br>
+        <input type="password" name="password" placeholder="Your Password" required="true">
+        <br>
+        <button type='submit'>Let's help!</button>
 
-    </form>
+      </form>
 
-    {{#if error}}
-    <p class="error-message">Sorry: {{error}}</p>
-    {{/if}}
+      {{#if error}}
+      <p class="error-message">Sorry: {{error}}</p>
+      {{/if}}
 
-    <a href="/auth/facebook"><button id="facebook">Login with Facebook</button></a>
-  </div>
+      <a href="/auth/facebook"><button id="facebook">Login with Facebook</button></a>
+    </div>
 
 </div>

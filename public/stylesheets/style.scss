@@ -3,10 +3,24 @@
 @import "login";
 @import "events";
 
+*:focus {
+    outline-style:none;
+    box-shadow:none;
+  }
 
 a {
   text-decoration: none;
   color: $orange;
+}
+a:hover {
+  text-decoration: none;
+  color: $orange;
+}
+.link {
+  background-color: $blue;
+  color: white;
+  padding: 10px 15px;
+  margin-bottom: 10px;
 }
 
 h1 {
@@ -26,6 +40,7 @@ body {
 
   nav {
     background-color: white;
+    box-shadow: 0px 0px 5px grey;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,15 +56,20 @@ body {
   }
 
   footer { 
-    background-color: $yellow;
+    background-image: url("../images/footer.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 20vh;
 
-    a {
+    #up {
       font-weight: $bold;
       font-size: 1.2em;
+      background-color: white;
+      padding: 15px 20px;
+      border-radius: 50%;
     }
   }
 }
@@ -58,10 +78,10 @@ body {
   min-height: 100vh;
   width: 80vw;
   margin-top: 50px;
-}
-
-.link {
-
+  margin-bottom: 50px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 
@@ -71,13 +91,12 @@ body {
 
 //everythin' form
 input {
+  border: none;
+  border-bottom: 5px dotted $orange;
   width: 100%;
   text-align: center;
   padding: 10px;
   margin-bottom: 10px;
-  @include media-breakpoint-up(md) {
-    width: 50%;
-  }
 }
 input[type="checkbox"] {
   width: auto;
@@ -89,13 +108,15 @@ label, .label {
   font-weight: $bold;
 }
 button {
-  background-color: $orange;
-  color: white;
+  color: $blue;
   border: none;
-  width: 100%;
-  padding: 10px;
+  border: 5px inset $blue;
+  border-radius: 5px;
+  font-weight: 700;
+  width: fit-content;
+  padding: 10px 30px;
   margin-bottom: 10px;
-}
-#facebook {
-  background-color: $blue;
+  
+  :hover {
+  }
 }

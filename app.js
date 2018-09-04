@@ -44,7 +44,7 @@ app.use(
   })
 );
 app.use(cookieParser());
-app.use(express.cookieSession()); // Express cookie session middleware
+
 app.use(passport.initialize()); // passport initialize middleware
 app.use(passport.session());
 

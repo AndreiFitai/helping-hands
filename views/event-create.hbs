@@ -1,166 +1,89 @@
 <div class="container">
-  <h1>Create an Event</h1>
-  <p id="disclaimer">So, you're about to create an event that follows moral guidelines of respect and tolerance, that has
-    a positiv influence on your neighborhood and that is not designed to enrich yourself? Good. Proceed!</p>
+
+  <div class="event-create">
+    <h1>Create an Event</h1>
+    <p id="disclaimer">So, you're about to create an event that follows moral guidelines of respect and tolerance, that has
+      a positiv influence on your neighborhood and that is not designed to enrich yourself? Good. Proceed!</p>
 
 
-  <form id="event-create" action="/events/create-event" method="post" enctype="multipart/form-data">
-    <label for="title">Event Title</label>
-    <br>
-    <input type="text" name="title" required="true">
-    <br>
+    <form id="event-create" action="/events/create-event" method="post" enctype="multipart/form-data">
+      <label for="title">Event Title</label>
+      <br>
+      <input type="text" name="title" required="true">
+      <br>
 
-    <label for="date">Date</label>
-    <br>
-    <input type="date" name="date" required="true">
-    <br>
+      <label for="date">Date</label>
+      <br>
+      <input type="date" name="date" required="true">
+      <br>
 
-    <label for="time">Time</label>
-    <br>
-    <select>
-      <option value="8">8:00</option>
-      <option value="9">9:00</option>
-      <option value="10">10:00</option>
-      <option value="11">11:00</option>
-      <option value="12">12:00</option>
-      <option value="13">13:00</option>
-      <option value="14">14:00</option>
-      <option value="15">15:00</option>
-      <option value="16">16:00</option>
-      <option value="17">17:00</option>
-      <option value="18">18:00</option>
-    </select>
-    <br>
-
-
-    <label for="address">Adress</label>
-    <br>
-    <input type="text" name="address" required="true">
-    <br>
-
-    <label for="description">Description</label>
-    <p>Short description about your plans and your mission. What do you want to change?</p>
-    <input type="textarea" name="description" required="true">
-    <br>
-
-    <label for="requirements">Requirements</label>
-    <p>What do your participants have to do? Is there anything in particular they will need (Equipement / Clothing)?</p>
-    <input type="textarea" name="requirements" required="true">
-    <br>
-
-    <input type="checkbox" name="car" value="true"><p class="tag">Will you need someone with a car?</p>
-    <br>
-
-    <label for="amount">Amount of needed Helpers</label>
-    <br>
-    <input type="number" name="amount" required="true">
-    <br>
-
-    <p class="label">Tags</p>
-    <div>
-      <input type="checkbox" name="sports" value="true"><p class="tag">Sport</p>
-      <input type="checkbox" name="charity" value="true"><p class="tag">Charity</p>
-      <input type="checkbox" name="local" value="true"><p class="tag">Local</p>
-      <input type="checkbox" name="lgbt" value="true"><p class="tag">LGBTQ</p>
-      <input type="checkbox" name="artistical" value="true"><p class="tag">Art</p>
-      <input type="checkbox" name="politics" value="true"><p class="tag">Politics</p>
-      <input type="checkbox" name="educational" value="true"><p class="tag">Education</p>
-    </div>
-
-    <label for="photo">Image</label>
-    <br>
-    <input type="file" name="photo" id="">
-
-    <p class="label">Location</p>
-    <p>Just drag and drop to set your meeting point.</p>
-    <div id="map"></div>
-    <input type="hidden" id="loc-pick-lat" name="lat" value=>
-    <input type="hidden" id="loc-pick-lng" name="lng" value=>
-    <br>
-    <button type='submit'>That'll be my event.</button>
-
-  </form>
-=======
-<h1>Create an Event</h1>
-<p id="disclaimer">So, you're about to create an event that follows moral guidelines of respect and tolerance, that has a positiv influence on your neighborhood and that is not designed to enrich yourself? Good. Proceed!</p>
+      <label for="time">Time</label>
+      <br>
+      <select>
+        <option value="8:00">8:00</option>
+        <option value="9:00">9:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+        <option value="18:00">18:00</option>
+      </select>
+      <br>
 
 
-<form id="event-create" action="/events/create-event" method="post"  enctype="multipart/form-data">
-  <label for="title">Event Title</label>
-  <br>
-  <input type="text" name="title" required="true">
-  <br>
+      <label for="address">Adress</label>
+      <br>
+      <input type="text" name="address" required="true">
+      <br>
 
-  <label for="date">Date</label>
-  <br>
-  <input type="date" name="date" required="true">
-  <br>
+      <label for="description">Description</label>
+      <p>Short description about your plans and your mission. What do you want to change?</p>
+      <input type="textarea" name="description" required="true">
+      <br>
 
-  <label for="time">Time</label>
-  <br>
-  <select>
-    <option value="8:00">8:00</option>
-    <option value="9:00">9:00</option>
-    <option value="10:00">10:00</option>
-    <option value="11:00">11:00</option>
-    <option value="12:00">12:00</option>
-    <option value="13:00">13:00</option>
-    <option value="14:00">14:00</option>
-    <option value="15:00">15:00</option>
-    <option value="16:00">16:00</option>
-    <option value="17:00">17:00</option>
-    <option value="18:00">18:00</option>
-  </select>
-  <br>
+      <label for="requirements">Requirements</label>
+      <p>What do your participants have to do? Is there anything in particular they will need (Equipement / Clothing)?</p>
+      <input type="textarea" name="requirements" required="true">
+      <br>
 
+      <input type="checkbox" name="car" value="true"><p class="tag">Will you need someone with a car?</p>
+      <br>
 
-  <label for="address">Adress</label>
-  <br>
-  <input type="text" name="address" required="true">
-  <br>
+      <label for="amount">Amount of needed Helpers</label>
+      <br>
+      <input type="number" name="amount" required="true">
+      <br>
 
-  <label for="description">Description</label>
-  <p>Short description about your plans and your mission. What do you want to change?</p>
-  <input type="textarea" name="description" required="true">
-  <br>
+      <p class="label">Tags</p>
+      <div>
+        <input type="checkbox" name="sports" value="true"><p class="tag">Sport</p>
+        <input type="checkbox" name="charity" value="true"><p class="tag">Charity</p>
+        <input type="checkbox" name="local" value="true"><p class="tag">Local</p>
+        <input type="checkbox" name="lgbt" value="true"><p class="tag">LGBTQ</p>
+        <input type="checkbox" name="artistical" value="true"><p class="tag">Art</p>
+        <input type="checkbox" name="politics" value="true"><p class="tag">Politics</p>
+        <input type="checkbox" name="educational" value="true"><p class="tag">Education</p>
+      </div>
 
-  <label for="requirements">Requirements</label>
-  <p>What do your participants have to do? Is there anything in particular they will need (Equipement / Clothing)?</p>
-  <input type="textarea" name="requirements" required="true">
-  <br>
+      <label for="img">Image</label>
+      <br>
+      <input type="file" name="photo">
 
-  <input type="checkbox" name="car" value="true"><p class="tag">Will you need someone with a car?</p>
-  <br>
+      <p class="label">Location</p>
+      <p>Just drag and drop to set your meeting point.</p>
+      <div id="map"></div>
+      <input type="hidden" id="loc-pick-lat" name="lat" value=>
+      <input type="hidden" id="loc-pick-lng" name="lng" value=>
+      <br>
+      <button type='submit'>That'll be my event.</button>
 
-  <label for="amount">Amount of needed Helpers</label>
-  <br>
-  <input type="number" name="amount" required="true">
-  <br>
+    </form>
 
-  <p class="label">Tags</p>
-  <div>
-  <input type="checkbox" name="sports" value="true"><p class="tag">Sport</p>
-  <input type="checkbox" name="charity" value="true"><p class="tag">Charity</p>
-  <input type="checkbox" name="local" value="true"><p class="tag">Local</p>
-  <input type="checkbox" name="lgbt" value="true"><p class="tag">LGBTQ</p>
-  <input type="checkbox" name="artistical" value="true"><p class="tag">Art</p>
-  <input type="checkbox" name="politics" value="true"><p class="tag">Politics</p>
-  <input type="checkbox" name="educational" value="true"><p class="tag">Education</p>
   </div>
-
-  <label for="img">Image</label>
-  <br>
-  <input type="file" name="photo">
-
-  <p class="label">Location</p>
-  <p>Just drag and drop to set your meeting point.</p>
-  <div id="map"></div>
-  <input type="hidden" id="loc-pick-lat" name="lat" value=>
-  <input type="hidden" id="loc-pick-lng" name="lng" value=>
-  <br>
-  <button type='submit'>That'll be my event.</button>
-
-</form>
 </div>
 
 <script src="https://unpkg.com/location-picker/dist/location-picker.min.js"></script>

@@ -37,3 +37,16 @@
     line-height: 3em;
   }
 }
+
+.event-create {
+  @include media-breakpoint-up(md) {
+    width: 50%;
+  }
+}
+
+#event-create {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
