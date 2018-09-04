@@ -1,0 +1,74 @@
+$orange: #FB7C41;
+$turquoise: #56D4C9;
+$blue: #026BBA;
+$yellow: #FEF9D6;
+
+$heavy: 900;
+$bold: 700;
+$regular: 400;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+//control breakpoints
+// body {
+// 	@include media-breakpoint-up(md) {
+// 		background-color: #ff6666;
+// 		section::after {
+// 			content: "LG";
+// 			position: fixed;
+// 			top: 0;
+// 			background-color: white;
+// 			border: 3px dashed blue;
+// 			border-bottom-right-radius: 30px;
+// 			font-size: 36px;
+// 		}
+// 	}
+// 	@include media-breakpoint-down(lg) {
+// 		background-color: #ffb266;
+// 		section::after {
+// 			content: "MD";
+// 			position: fixed;
+// 			top: 0;
+// 			background-color: white;
+// 			border: 3px dashed chartreuse;
+// 			border-bottom-right-radius: 30px;
+// 			font-size: 36px;
+// 		}
+// 	}
+// 	@include media-breakpoint-down(md) {
+// 		background-color: #ffff66;
+// 		section::after {
+// 			content: "SM";
+// 			position: fixed;
+// 			top: 0;
+// 			background-color: white;
+// 			border: 3px dashed aquamarine;
+// 			border-bottom-right-radius: 30px;
+// 			font-size: 36px;
+// 		}
+// 	}
+// 	@include media-breakpoint-down(sm) {
+// 		background-color: #b2ff66;
+// 		section::after {
+// 			content: "XS";
+// 			position: fixed;
+// 			top: 0;
+// 			background-color: white;
+// 			border: 3px dashed rebeccapurple;
+// 			border-bottom-right-radius: 30px;
+// 			font-size: 36px;
+// 		}
+// 	}
+// 	@include media-breakpoint-down(xs) {
+// 		background-color: #b2b266;
+// 		section::after {
+// 			content: "XXS";
+// 			position: fixed;
+// 			top: 0;
+// 			background-color: white;
+// 			border: 3px dashed darkmagenta;
+// 			border-bottom-right-radius: 30px;
+// 			font-size: 36px;
+// 		}
+// 	}
+// }
