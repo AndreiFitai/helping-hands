@@ -1,8 +1,4 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
-$red: #f2616f;
-$yellow: #fffb76;
-$grey: #494949;
-$lightgrey: #e6e6e6;
+@import "myvariables.scss";
 
 #map {
   width: 100%;
@@ -36,7 +32,7 @@ $lightgrey: #e6e6e6;
   }
 
   h2 {
-    font-weight: 700;
+    font-weight: $bold;
     font-size: 1.2em;
     line-height: 3em;
   }
