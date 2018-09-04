@@ -8,15 +8,16 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
+const passport = require("passport");
 
 mongoose.Promise = Promise;
 mongoose
   .connect(
-    "mongodb://localhost/project", {
+    "mongodb://localhost/project",
+    {
       useMongoClient: true
     }
   )
@@ -37,12 +38,15 @@ const app = express();
 // Middleware Setup
 app.use(logger("dev"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
 app.use(cookieParser());
-// app.use(fileUpload()) << Issues with fileupload
-
+app.use(express.cookieSession()); // Express cookie session middleware
+app.use(passport.initialize()); // passport initialize middleware
+app.use(passport.session());
 
 // Express View engine setup
 
