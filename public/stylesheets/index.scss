@@ -3,14 +3,30 @@
 .map {
   height: 80vh;
   background-color: grey;
+  z-index: -1;
 }
-// #opener {
-//   position: absolute;
-//   margin-top: -65vh;
-//   left: 0;
-//   text-align: center;
-//   width: 70%;
-// }
+
+#opener {
+  background-color: rgba(255,255,255,0.7);
+  margin-top: -80vh;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .center {
+    width: 50%;
+    text-align: center;  
+    
+    .tagline-1 {
+      font-weight: 700;
+      font-size: 1.5em;
+    }
+    .tagline-2 {
+      font-weight: 700;
+    }
+  }
+}
 
 .index {
   display: flex;
