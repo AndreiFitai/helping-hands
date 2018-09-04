@@ -12628,7 +12628,24 @@ a.text-dark:hover, a.text-dark:focus {
 
 .map {
   height: 80vh;
-  background-color: grey; }
+  background-color: grey;
+  z-index: -1; }
+
+#opener {
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-top: -80vh;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #opener .center {
+    width: 50%;
+    text-align: center; }
+    #opener .center .tagline-1 {
+      font-weight: 700;
+      font-size: 1.5em; }
+    #opener .center .tagline-2 {
+      font-weight: 700; }
 
 .index {
   display: flex;
@@ -25360,17 +25377,33 @@ body {
   font-family: "Titillium Web", sans-serif;
   font-size: 18px; }
   body nav {
-    background-color: white;
-    box-shadow: 0px 0px 5px grey;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     height: 20vh; }
+    body nav ul {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center; }
+      body nav ul li {
+        list-style: none; }
     body nav #home {
-      font-style: italic;
-      margin-right: 5%; }
+      margin-right: 40px; }
+    body nav .round {
+      background-color: #FB7C41;
+      border-radius: 50%;
+      width: 50%;
+      text-align: center;
+      font-size: 0.8em;
+      padding: 15px 50px 15px 18px; }
+    body nav .round:hover {
+      background-color: white;
+      box-shadow: 0px 0px 0px 4px #FB7C41 inset; }
     body nav #profile-link {
-      display: none; }
+      color: white; }
+    body nav #profile-link:hover {
+      color: #FB7C41; }
   body footer {
     background-image: url("../images/footer.svg");
     background-repeat: no-repeat;
@@ -25413,13 +25446,21 @@ label, .label {
   font-weight: 700; }
 
 button {
-  color: #026BBA;
+  color: white;
   border: none;
-  border: 5px inset #026BBA;
-  border-radius: 5px;
-  font-weight: 700;
+  color: #026BBA;
+  border: 1px solid #026BBA;
+  border-radius: 40px;
+  background-color: white;
+  font-weight: 400;
+  font-style: italic;
   width: fit-content;
-  padding: 10px 30px;
+  padding: 8px 20px;
   margin-bottom: 10px; }
+
+button:hover {
+  color: white;
+  border: 1px solid #026BBA;
+  background-color: #026BBA; }
 
 /*# sourceMappingURL=style.css.map */
