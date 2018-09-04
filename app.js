@@ -44,7 +44,6 @@ app.use(
   })
 );
 app.use(cookieParser());
-
 app.use(passport.initialize()); // passport initialize middleware
 app.use(passport.session());
 
@@ -98,5 +97,8 @@ app.use("/auth", authRoutes);
 
 const eventRoutes = require("./routes/events");
 app.use("/events", eventRoutes);
+
+const api = require("./routes/api");
+app.use("/api", api);
 
 module.exports = app;
