@@ -5,7 +5,3 @@ document.addEventListener(
   },
   false
 );
-
-// events
-
-// abouts

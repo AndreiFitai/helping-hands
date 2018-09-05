@@ -1,10 +1,236 @@
+var mapStyle = [
+  {
+    featureType: "all",
+    elementType: "labels",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "administrative",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#444444"
+      }
+    ]
+  },
+  {
+    featureType: "administrative.province",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "administrative.locality",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "administrative.neighborhood",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "administrative.land_parcel",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "landscape",
+    elementType: "all",
+    stylers: [
+      {
+        saturation: "-38"
+      },
+      {
+        weight: "1.32"
+      },
+      {
+        color: "#fbe9c9"
+      }
+    ]
+  },
+  {
+    featureType: "landscape.man_made",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "landscape.natural.landcover",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "poi",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "poi.attraction",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "off"
+      }
+    ]
+  },
+  {
+    featureType: "poi.business",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "off"
+      }
+    ]
+  },
+  {
+    featureType: "road",
+    elementType: "all",
+    stylers: [
+      {
+        saturation: -100
+      },
+      {
+        lightness: 45
+      }
+    ]
+  },
+  {
+    featureType: "road.highway",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "road.highway",
+    elementType: "labels",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "road.arterial",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "road.arterial",
+    elementType: "labels",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "road.arterial",
+    elementType: "labels.icon",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "road.local",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "road.local",
+    elementType: "labels.text",
+    stylers: [
+      {
+        visibility: "on"
+      }
+    ]
+  },
+  {
+    featureType: "transit",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "off"
+      }
+    ]
+  },
+  {
+    featureType: "transit.line",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "off"
+      }
+    ]
+  },
+  {
+    featureType: "water",
+    elementType: "all",
+    stylers: [
+      {
+        visibility: "on"
+      },
+      {
+        color: "#333bbf"
+      },
+      {
+        lightness: "41"
+      }
+    ]
+  }
+];
+
 var locationPicker = new locationPicker(
   "map",
   {
     setCurrentPosition: true // You can omit this, defaults to true
   },
   {
-    zoom: 15 // You can set any google map options here, zoom defaults to 15
+    zoom: 12, // You can set any google map options here, zoom defaults to 15
+    styles: mapStyle
   }
 );
 
@@ -12,7 +238,7 @@ var locationPicker = new locationPicker(
 var latitude = document.getElementById("loc-pick-lat");
 var longitude = document.getElementById("loc-pick-lng");
 
-const geocoder = new google.maps.Geocoder();
+var geocoder = new google.maps.Geocoder();
 
 //Sets
 document.getElementById("address").addEventListener("focusout", function() {
@@ -22,10 +248,11 @@ document.getElementById("address").addEventListener("focusout", function() {
 
 function geocodeAddress(geocoder, map) {
   let address = document.getElementById("address").value;
-  console.log(address);
+  let city = document.getElementById("city").value;
+  console.log(exactLoc);
   geocoder.geocode(
     {
-      address: address
+      address: address + ", " + city
     },
     function(results, status) {
       if (status === "OK") {
