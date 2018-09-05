@@ -20,7 +20,7 @@ router.get("/event/:id", (req, res, next) => {
 
 router.get("/list", (req, res, next) => {
   Event.find({}).then(data => {
-    res.render("event-multi", data);
+    res.render("event-multi", { data });
   });
 });
 

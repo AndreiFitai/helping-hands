@@ -5,14 +5,14 @@
 
     <form id="user-edit" action="/user-edit" method="post">
       <label for="name">Displayed Name {{name}}</label>
-      <input type="text" name="name" required="true" placeholder="{{name}}">
+      <input type="text" name="name" required="true" value="{{name}}">
 
       <label for="email">Change your E-mail</label>
-      <input type="email" name="email" required="true" placeholder="{{email}}">
+      <input type="email" name="email" required="true" value="{{email}}">
 
       <label for="bio">Your Motivation</label>
       <p>Why do you want to help your local community? What is your mission? Or just put something random.</p>
-      <input type="textarea" name="bio" required="true" placeholder="{{bio}}">
+      <input type="textarea" name="bio" required="true" value="{{bio}}">
 
       <p class="label">Your Interests</p>
       <div class="list">
@@ -42,5 +42,5 @@
 
     </form>
 
-</div>
   </div>
+</div>

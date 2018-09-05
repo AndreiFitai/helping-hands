@@ -14,11 +14,16 @@
 
 <body>
   <nav>
-    <a id="nav-login" href="./auth/login">Log in or Sign up ⇢</a>
+    {{#if user}} {{!-- <img src="" alt="" id="user-pic-round"> --}}
+    <a id="nav-login" href="/user-profile">Profile ⇢</a>
+    {{else}}
+    <a id="nav-login" href="/auth/login">Log in or Sign up ⇢</a>
+    {{/if}}
+
     <div id="nav-links">
       <a id="nav-logo" href="./">Helping Hands</a>
       <ul>
-        <li><a href="">EVENTS</a></li>
+        <li><a href="/events/list">EVENTS</a></li>
         <li><a href="">THE IDEA</a></li>
       </ul>
     </div>

@@ -25394,6 +25394,11 @@ a.text-dark:hover, a.text-dark:focus {
     font-size: 1.2em;
     line-height: 3em; }
 
+.event-img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover; }
+
 @media (min-width: 768px) {
   .event-create {
     width: 50%; } }
@@ -25403,6 +25408,19 @@ a.text-dark:hover, a.text-dark:focus {
   display: flex;
   flex-flow: column nowrap;
   align-items: center; }
+
+#events-filter-container {
+  display: flex;
+  flex-flow: row wrap; }
+
+#events-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around; }
+
+.card img {
+  height: 300px;
+  object-fit: cover; }
 
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)

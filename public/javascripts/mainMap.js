@@ -229,7 +229,7 @@ function startMap() {
     lng: 13.404389
   };
   const map = new google.maps.Map(document.getElementById("map-main"), {
-    zoom: 12,
+    zoom: 13,
     center: berlin,
     styles: mapStyle,
     disableDefaultUI: true,
