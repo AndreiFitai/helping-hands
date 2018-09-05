@@ -1,0 +1,13 @@
+@import "myvariables.scss";
+
+.edit {
+  @include media-breakpoint-up(md) {
+    width: 50%;
+  }
+
+  form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  }
+}
