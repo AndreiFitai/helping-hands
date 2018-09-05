@@ -28,6 +28,11 @@ router.get("/user-edit", ensureLoggedIn("/auth/login"), (req, res, next) => {
     res.render("user-edit", data[0]);
   });
 });
+router.post("/user-edit", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  User.findOneAndUpdate({ _id: req.user._id }).then(data => {
+    res.redirect("/user-profile");
+  });
+});
 
 router.get("/organization", ensureLoggedIn("/auth/login"), (req, res, next) => {
   res.render("organization");

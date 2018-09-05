@@ -40,9 +40,7 @@ authRoutes.get("/login", (req, res, next) => {
   res.render("auth/login", { message: req.flash("error") });
 });
 
-authRoutes.post(
-  "/login",
-  passport.authenticate("local", {
+authRoutes.post("/login", passport.authenticate("local", {
     successReturnToOrRedirect: "/",
     failureRedirect: "/auth/login",
     failureFlash: true,
@@ -54,13 +52,13 @@ authRoutes.post("/signup", (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   if (email === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate email and password" });
+    res.render("auth/login", { message: "Indicate email and password" });
     return;
   }
 
   User.findOne({ email }, "email", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", {
+      res.render("auth/login", {
         message: "An account with this email already exists"
       });
       return;
@@ -70,9 +68,10 @@ authRoutes.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
+      name,
       email,
       password: hashPass
-    });
+    }); 
 
     newUser.save(err => {
       if (err) {

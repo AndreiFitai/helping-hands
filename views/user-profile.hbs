@@ -1,37 +1,9 @@
-<h1>Edit your Profile</h1>
+<div class="container">
 
-<form id="user-edit" action="" method="post">
-  <label for="name">Displayed Name</label>
-  <input type="text" name="name" required="true">
-  
-  <label for="email">Change your E-mail</label>
-  <input type="email" name="email" required="true">
+<img src="{{picture}}">
 
-  <label for="bio">Your Motivation</label>
-  <p>Why do you want to help your local community? What is your mission? Or just put something random.</p>
-  <input type="textarea" name="bio" required="true">
+<h1>{{name}}</h1>
 
-  <p class="label">Your Interests</p>
-  <div class="list">
-    <input type="checkbox" name="tag1" value="sport"><p class="tag">Sport</p>
-    <input type="checkbox" name="tag2" value="charity"><p class="tag">Charity</p>
-    <input type="checkbox" name="tag3" value="local"><p class="tag">Local</p>
-    <input type="checkbox" name="tag4" value="lgbtq"><p class="tag">LGBTQ</p>
-    <input type="checkbox" name="tag5" value="art"><p class="tag">Art</p>
-    <input type="checkbox" name="tag6" value="politics"><p class="tag">Politics</p>
-    <input type="checkbox" name="tag7" value="education"><p class="tag">Education</p>
-  </div>
-  <br>
-   
-  <label for ="img">Profile-Picture</label>
-  <input type="file" name="img">
+<p>{{bio}}</p>
 
-  <p class="label">Set your E-Mail Preferenced</p>
-    <input type="checkbox" name="mailopt1" value="sport"><p class="tag">Receive a weekly newsletter.</p>
-    <input type="checkbox" name="mailopt2" value="charity"><p class="tag">Receive updates from the events you checked.</p>
-    <input type="checkbox" name="mailopt3" value="local"><p class="tag">Get E-Mail Notifications if you receive a message.</p>
-  
-  <button type='submit'>Accept Changes</button>
-
-</form>
-
+</div>
