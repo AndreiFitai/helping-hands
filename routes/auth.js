@@ -36,7 +36,6 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 authRoutes.get("/login", (req, res, next) => {
-  console.log(req.session.returnTo);
   res.render("auth/login", { message: req.flash("error") });
 });
 
@@ -80,7 +79,7 @@ authRoutes.post("/signup", (req, res, next) => {
       if (err) {
         res.render("auth/login", { message: "Something went wrong" });
       } else {
-        res.redirect("/user-edit");
+        res.redirect("/");
       }
     });
   });

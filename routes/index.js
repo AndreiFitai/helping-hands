@@ -20,7 +20,6 @@ router.get(
       .populate("event")
       .exec()
       .then(data => {
-        console.log(data);
         res.render("user-profile", data);
       });
   }
@@ -63,14 +62,13 @@ router.post(
       const imgPath = `/images/uploads/${imgName}`;
       params.picture = imgPath;
     }
-
-    User.findOneAndUpdate(
-      { _id: req.user._id },
-      { params },
-      { new: true }
-    ).then(data => {
-      res.redirect("/user-profile");
-    });
+    console.log(params);
+    User.findOneAndUpdate({ _id: req.user._id }, params, { new: true }).then(
+      data => {
+        console.log(data);
+        res.redirect("/user-profile/" + req.user._id);
+      }
+    );
   }
 );
 
