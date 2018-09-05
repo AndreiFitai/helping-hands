@@ -12,11 +12,11 @@ router.get("/", (req, res, next) => {
 });
 
 router.get(
-  "/user-profile/",
+  "/user-profile/:id",
   ensureLoggedIn("/auth/login"),
   (req, res, next) => {
-    if (req.user._id === req.params.id || !req.params.id) {
-      User.find({ _id: req.user._id }).then(data => {
+    if (!req.params.id) {
+      User.find({ _id: req.user.id }).then(data => {
         res.render("user-profile", data[0]);
       });
     } else {

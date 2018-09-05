@@ -5,41 +5,46 @@
 @import "users";
 
 *:focus {
-    outline-style:none;
-    box-shadow:none;
-  }
+  outline-style: none;
+  box-shadow: none;
+}
 
 a {
   text-decoration: none;
 }
 @keyframes linkhover {
-  0%   {text-shadow: none};
-  50%  {text-shadow: 0 0 10px $orange};
-  100% {text-shadow: none};
+  0% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 10px $orange;
+  }
+  100% {
+    text-shadow: none;
+  }
 }
 a:hover {
-  text-decoration: none; 
+  text-decoration: none;
   animation-name: linkhover;
   animation-duration: 3s;
 }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   margin-bottom: 30px;
   text-align: center;
 }
 h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 20px;
   text-align: center;
 }
 
 body {
-  font-family: 'Pontano Sans', sans-serif;
+  font-family: "Pontano Sans", sans-serif;
   // font-family: 'Montserrat', sans-serif;
   font-size: 18px;
-
 
   nav {
     display: flex;
@@ -65,7 +70,7 @@ body {
       align-items: center;
 
       #nav-logo {
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-weight: 700;
         color: $grey;
       }
@@ -73,11 +78,11 @@ body {
       ul {
         list-style: none;
         margin-bottom: 0;
-        
+
         li {
-          display: inline; 
+          display: inline;
           margin-left: 5vw;
-          font-family: 'Montserrat', sans-serif;
+          font-family: "Montserrat", sans-serif;
           font-weight: 400;
           font-size: 0.8em;
           letter-spacing: 0.3em;
@@ -90,7 +95,7 @@ body {
     }
   }
 
-  footer { 
+  footer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,7 +116,7 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
-      }
+    }
   }
 }
 
@@ -124,11 +129,6 @@ body {
   flex-flow: column nowrap;
   align-items: center;
 }
-
-
-
-
-
 
 //everythin' form
 input {
@@ -150,7 +150,8 @@ input[type="checkbox"]:first-child {
 .tag {
   display: inline;
 }
-label, .label {
+label,
+.label {
   font-weight: $bold;
 }
 button {
@@ -166,10 +167,19 @@ button {
   width: fit-content;
   padding: 8px 20px;
   margin-bottom: 10px;
-  
 }
-  button:hover {
-    color: white;
-    border: 1px solid $blue;
-    background-color: $blue;
+button:hover {
+  color: white;
+  border: 1px solid $blue;
+  background-color: $blue;
 }
+
+#user-pic-round {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+// #nav-user {
+//   display: flex;
+//   flex-flow: row nowrap;
+// }
