@@ -44,8 +44,6 @@ app.use(
   })
 );
 app.use(cookieParser());
-app.use(passport.initialize()); // passport initialize middleware
-app.use(passport.session());
 
 // Express View engine setup
 
@@ -58,6 +56,7 @@ app.use(
 );
 
 app.set("views", path.join(__dirname, "views"));
+hbs.registerPartials(__dirname + "/views/partials");
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
@@ -86,6 +85,14 @@ app.use(
     })
   })
 );
+app.use(passport.initialize()); // passport initialize middleware
+app.use(passport.session());
+
+app.use((req, res, next) => {
+  const user = req.user;
+  next();
+});
+
 app.use(flash());
 require("./passport")(app);
 
