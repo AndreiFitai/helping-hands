@@ -60,7 +60,10 @@ const eventSchema = new Schema({
   },
   participants: [
     {
-      userId: String,
+      userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user"
+      },
       role: {
         type: String,
         enum: ["Organizer", "Volunteer"],

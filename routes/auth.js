@@ -40,7 +40,9 @@ authRoutes.get("/login", (req, res, next) => {
   res.render("auth/login", { message: req.flash("error") });
 });
 
-authRoutes.post("/login", passport.authenticate("local", {
+authRoutes.post(
+  "/login",
+  passport.authenticate("local", {
     successReturnToOrRedirect: "/",
     failureRedirect: "/auth/login",
     failureFlash: true,

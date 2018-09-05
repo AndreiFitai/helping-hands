@@ -14,7 +14,12 @@ const userSchema = new Schema({
     default: "User"
   },
   exp: Number,
-  events: [],
+  events: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "event"
+    }
+  ],
   options: {
     biweekly_email: {
       type: Boolean,

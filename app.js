@@ -16,7 +16,7 @@ const passport = require("passport");
 mongoose.Promise = Promise;
 mongoose
   .connect(
-    "mongodb://localhost/project",
+    process.env.MONGODB_URI,
     {
       useMongoClient: true
     }
