@@ -243,20 +243,17 @@ var geocoder = new google.maps.Geocoder();
 //Sets
 document.getElementById("address").addEventListener("focusout", function() {
   geocodeAddress(geocoder, locationPicker.map);
-  console.log(map);
 });
 
 function geocodeAddress(geocoder, map) {
   let address = document.getElementById("address").value;
   let city = document.getElementById("city").value;
-  console.log(exactLoc);
   geocoder.geocode(
     {
       address: address + ", " + city
     },
     function(results, status) {
       if (status === "OK") {
-        console.log(results[0].geometry.location);
         map.setCenter(results[0].geometry.location);
         latitude.value = results[0].geometry.location.lat();
         longitude = results[0].geometry.location.lng();

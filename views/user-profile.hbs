@@ -1,14 +1,15 @@
 <div class="container">
   <div id="user-details-container">
-    <img src="{{picture}}" />
+    <img src="{{user.picture}}" />
 
     <p>name</p>
-    <h1>{{name}}</h1>
+    <h1>{{user.name}}</h1>
 
     <p>About me:</p>
-    <h4>{{bio}}</h4>
+    <h4>{{user.bio}}</h4>
   </div>
   <div id="event-history">
     {{!-- {{}} --}}
   </div>
+  <a href="/user-edit">Edit profile</a>
 </div>
