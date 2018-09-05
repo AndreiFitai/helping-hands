@@ -31766,18 +31766,18 @@ a:hover {
   animation-duration: 3s; }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   margin-bottom: 30px;
   text-align: center; }
 
 h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 20px;
   text-align: center; }
 
 body {
-  font-family: 'Pontano Sans', sans-serif;
+  font-family: "Pontano Sans", sans-serif;
   font-size: 18px; }
   body nav {
     display: flex;
@@ -31800,7 +31800,7 @@ body {
       justify-content: space-between;
       align-items: center; }
       body nav #nav-links #nav-logo {
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-weight: 700;
         color: #747474; }
       body nav #nav-links ul {
@@ -31809,7 +31809,7 @@ body {
         body nav #nav-links ul li {
           display: inline;
           margin-left: 5vw;
-          font-family: 'Montserrat', sans-serif;
+          font-family: "Montserrat", sans-serif;
           font-weight: 400;
           font-size: 0.8em;
           letter-spacing: 0.3em; }
@@ -31864,7 +31864,8 @@ input[type="checkbox"]:first-child {
 .tag {
   display: inline; }
 
-label, .label {
+label,
+.label {
   font-weight: 700; }
 
 button {
@@ -31885,5 +31886,10 @@ button:hover {
   color: white;
   border: 1px solid #026BBA;
   background-color: #026BBA; }
+
+#user-pic-round {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px; }
 
 /*# sourceMappingURL=style.css.map */
