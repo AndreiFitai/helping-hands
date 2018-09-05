@@ -23,6 +23,23 @@ router.get("/list", (req, res, next) => {
     res.render("event-multi", { data });
   });
 });
+router.post("/list", (req, res, next) => {
+  console.log(req.body)
+  let filters = {
+    keyword: req.body.keyword,
+    start: req.body.from,
+    end: req.body.to,
+    nedd: req.body.need,
+    sports: sports,
+    charity: charit, 
+    local: local,
+    lgbt: lgbt,
+    artistical: artistical,
+    politics: politics,
+    educational: educational,
+  }
+  // Event.find({req.params})
+})
 
 router.post("/create-event", upload.single("photo"), (req, res, next) => {
   const imgName = req.file.filename;
