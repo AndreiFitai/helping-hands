@@ -49,6 +49,7 @@ authRoutes.post("/login", passport.authenticate("local", {
 );
 
 authRoutes.post("/signup", (req, res, next) => {
+  const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
   if (email === "" || password === "") {
@@ -71,13 +72,13 @@ authRoutes.post("/signup", (req, res, next) => {
       name,
       email,
       password: hashPass
-    }); 
+    });
 
     newUser.save(err => {
       if (err) {
-        res.render("auth/signup", { message: "Something went wrong" });
+        res.render("auth/login", { message: "Something went wrong" });
       } else {
-        res.redirect("/");
+        res.redirect("/user-edit");
       }
     });
   });

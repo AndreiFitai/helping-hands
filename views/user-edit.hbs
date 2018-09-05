@@ -3,7 +3,7 @@
   <div class="edit">
     <h1>Edit your Profile</h1>
 
-    <form id="user-edit" action="/user-edit" method="post">
+    <form id="user-edit" action="/user-edit" method="post" enctype="multipart/form-data">
       <label for="name">Displayed Name {{name}}</label>
       <input type="text" name="name" required="true" placeholder="{{name}}">
 
@@ -26,16 +26,16 @@
       </div>
       <br>
 
-      <label for="picture">Profile-Picture</label>
+      <label for="photo">Profile-Picture</label>
       <img src="{{picture}}" alt="">
-      <input type="file" name="picture">
+      <input type="file" name="photo">
 
       <p class="label">Set your E-Mail Preferences</p>
-      <input type="checkbox" name="mailopt1" value="sport" {{#if options.biweekly_email}}checked{{/if}}><p class="tag">Receive
+      <input type="checkbox" name="mailopt1" value="true" {{#if options.biweekly_email}}checked{{/if}}><p class="tag">Receive
         a weekly newsletter.</p>
-      <input type="checkbox" name="mailopt2" value="charity"><p class="tag" {{#if options.event_msg_email}}checked{{/if}}>Receive
+      <input type="checkbox" name="mailopt2" value="true" {{#if options.event_msg_email}}checked{{/if}}><p class="tag">Receive
         updates from the events you checked.</p>
-      <input type="checkbox" name="mailopt3" value="local"><p class="tag" {{#if options.direct_msg_email}}checked{{/if}}>Get
+      <input type="checkbox" name="mailopt3" value="true" {{#if options.direct_msg_email}}checked{{/if}}><p class="tag">Get
         E-Mail Notifications if you receive a message.</p>
 
       <button type='submit'>Accept Changes</button>
