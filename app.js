@@ -89,7 +89,8 @@ app.use(passport.initialize()); // passport initialize middleware
 app.use(passport.session());
 
 app.use((req, res, next) => {
-  const user = req.user;
+  res.locals.user = req.user;
+  console.log(res.locals.user);
   next();
 });
 
