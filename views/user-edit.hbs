@@ -1,40 +1,46 @@
-<h1>Edit your Profile</h1>
+<div class="container">
 
-<form id="user-edit" action="/user-edit" method="post">
-  <label for="name">Displayed Name {{name}}</label>
-  <input type="text" name="name" required="true" placeholder="{{name}}">
+  <div class="edit">
+    <h1>Edit your Profile</h1>
 
-  <label for="email">Change your E-mail</label>
-  <input type="email" name="email" required="true" placeholder="{{email}}">
+    <form id="user-edit" action="/user-edit" method="post" enctype="multipart/form-data">
+      <label for="name">Displayed Name {{name}}</label>
+      <input type="text" name="name" required="true" value="{{name}}">
 
-  <label for="bio">Your Motivation</label>
-  <p>Why do you want to help your local community? What is your mission? Or just put something random.</p>
-  <input type="textarea" name="bio" required="true" placeholder="{{bio}}">
+      <label for="email">Change your E-mail</label>
+      <input type="email" name="email" required="true" value="{{email}}">
 
-  <p class="label">Your Interests</p>
-  <div class="list">
-    <input type="checkbox" name="sports" value="true"><p class="tag" {{#if interests.sport}}checked{{/if}}>Sport</p>
-    <input type="checkbox" name="charity" value="true"><p class="tag" {{#if interests.charity}}checked{{/if}}>Charity</p>
-    <input type="checkbox" name="local" value="true"><p class="tag" {{#if interests.local}}checked{{/if}}>Local</p>
-    <input type="checkbox" name="lgbt" value="true"><p class="tag" {{#if interests.lgbt}}checked{{/if}}>LGBTQ</p>
-    <input type="checkbox" name="artistical" value="true"><p class="tag" {{#if interests.art}}checked{{/if}}>Art</p>
-    <input type="checkbox" name="politics" value="true"><p class="tag" {{#if interests.politics}}checked{{/if}}>Politics</p>
-    <input type="checkbox" name="educational" value="true"><p class="tag" {{#if interests.education}}checked{{/if}}>Education</p>
+      <label for="bio">Your Motivation</label>
+      <p>Why do you want to help your local community? What is your mission? Or just put something random.</p>
+      <input type="textarea" name="bio" required="true" value="{{bio}}">
+
+      <p class="label">Your Interests</p>
+      <div class="list">
+        <input type="checkbox" name="sports" value="true"><p class="tag" {{#if interests.sport}}checked{{/if}}>Sport</p>
+        <input type="checkbox" name="charity" value="true"><p class="tag" {{#if interests.charity}}checked{{/if}}>Charity</p>
+        <input type="checkbox" name="local" value="true"><p class="tag" {{#if interests.local}}checked{{/if}}>Local</p>
+        <input type="checkbox" name="lgbt" value="true"><p class="tag" {{#if interests.lgbt}}checked{{/if}}>LGBTQ</p>
+        <input type="checkbox" name="artistical" value="true"><p class="tag" {{#if interests.art}}checked{{/if}}>Art</p>
+        <input type="checkbox" name="politics" value="true"><p class="tag" {{#if interests.politics}}checked{{/if}}>Politics</p>
+        <input type="checkbox" name="educational" value="true"><p class="tag" {{#if interests.education}}checked{{/if}}>Education</p>
+      </div>
+      <br>
+
+      <label for="photo">Profile-Picture</label>
+      <img src="{{picture}}" alt="">
+      <input type="file" name="photo">
+
+      <p class="label">Set your E-Mail Preferences</p>
+      <input type="checkbox" name="mailopt1" value="true" {{#if options.biweekly_email}}checked{{/if}}><p class="tag">Receive
+        a weekly newsletter.</p>
+      <input type="checkbox" name="mailopt2" value="true" {{#if options.event_msg_email}}checked{{/if}}><p class="tag">Receive
+        updates from the events you checked.</p>
+      <input type="checkbox" name="mailopt3" value="true" {{#if options.direct_msg_email}}checked{{/if}}><p class="tag">Get
+        E-Mail Notifications if you receive a message.</p>
+
+      <button type='submit'>Accept Changes</button>
+
+    </form>
+
   </div>
-  <br>
-
-  <label for="picture">Profile-Picture</label>
-  <img src="{{picture}}" alt="">
-  <input type="file" name="picture">
-
-  <p class="label">Set your E-Mail Preferenced</p>
-  <input type="checkbox" name="mailopt1" value="sport" {{#if options.biweekly_email}}checked{{/if}}><p class="tag">Receive
-    a weekly newsletter.</p>
-  <input type="checkbox" name="mailopt2" value="charity"><p class="tag" {{#if options.event_msg_email}}checked{{/if}}>Receive
-    updates from the events you checked.</p>
-  <input type="checkbox" name="mailopt3" value="local"><p class="tag" {{#if options.direct_msg_email}}checked{{/if}}>Get
-    E-Mail Notifications if you receive a message.</p>
-
-  <button type='submit'>Accept Changes</button>
-
-</form>
+</div>

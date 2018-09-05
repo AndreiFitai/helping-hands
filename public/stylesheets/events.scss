@@ -9,7 +9,6 @@
 }
 
 .event-single {
-
   margin-bottom: 100px;
 
   .practical {
@@ -38,6 +37,12 @@
   }
 }
 
+.event-img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+}
+
 .event-create {
   @include media-breakpoint-up(md) {
     width: 50%;
@@ -49,4 +54,22 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+}
+
+#events-filter-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#events-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.card {
+  img {
+    height: 300px;
+    object-fit: cover;
+  }
 }
