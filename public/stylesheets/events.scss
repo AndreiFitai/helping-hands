@@ -5,14 +5,11 @@
   height: 20vh;
 }
 
-#map-single {
-  width: 100%;
-  height: 40vh;
-}
 
-#disclaimer {
-  text-align: center;
-}
+.event-img {
+  height: 40vh;
+  width: 100vw;
+  object-fit: cover;
 
 .event-single {
   margin-bottom: 30px;
@@ -21,7 +18,7 @@
   align-items: center;
 
   .practical {
-    width: 50%;
+    width: 50vw;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -43,52 +40,64 @@
   }
 }
 
-.event-img {
-  height: 40vh;
-  width: 100vw;
-  object-fit: cover;
-}
+
 
 .event-create {
   @include media-breakpoint-up(md) {
-    width: 50%;
+    width: 80%;
   }
 }
 
-#event-create {
-  width: 100%;
+.event-create {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  text-align: center;
+
+  form {
+    width: 70%;
+    margin-top: 50px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .date, .location {
+    width: 100%;
+  }
+  span {
+    font-family: "Montserrat", sans-serif;
+    margin-top: 20px;
+  }
+  #map {
+    height: 300px;
+  }
 }
 
 .filters {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  margin-bottom: 50px;
+
+  input[type="text"] {
+    border-color: grey;
+  }
 
   span,
   label {
     color: $grey;
     font-size: 0.8em;
   }
-
   .row {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-around;
-
-    input {
-      border: none;
-      width: fit-content;
-    }
   }
 }
 
 .card {
   img {
-    height: 300px;
+    height: 200px;
     object-fit: cover;
   }
 }
