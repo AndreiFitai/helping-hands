@@ -1,15 +1,19 @@
-<div id="events-filter-container">
+<div class="container">
+
   <form action="/events/list" method="post">
-    <div class="row">
-      <div class="col">
+    <div class="filters">
 
-        <input type="text" name="keyword" id="keyword-search" placeholder="Search by Keyword">
-      </div>
-      <div class="col">
-        <input type="date" name="from" id="from" placeholder="From which day">
-        <input type="date" name="to" id="to" placeholder="Until which day">
+      <input type="text" name="keyword" id="keyword-search" placeholder="Search by Keyword">
 
+      <span>Pick a Timeframe</span>
+      <div class="row">
+        <label for="from">From</label>
+        <input id="today" type="date" name="from">
+        <label for="from">To</label>
+        <input id="future" type="date" name="to">
       </div>
+
+      {{!--
       <div class="col">
         <input type="checkbox" name="need" value="true"><p class="tag">Help still needed</p>
         <div class="list">
@@ -21,18 +25,21 @@
           <input type="checkbox" name="politics" value="true"><p class="tag">Politics</p>
           <input type="checkbox" name="educational" value="true"><p class="tag">Education</p>
         </div>
+      </div> --}}
 
-      </div>
-      <div class="col">
-        <button type="submit">Filter !</button>
-      </div>
+      <button type="submit">Filter!</button>
+
     </div>
   </form>
+
+  <div id="events-container" class="card-columns">
+    {{#each data}} {{>eventCard this}} {{/each}}
+  </div>
 </div>
 
-<div id="events-container">
-  {{#each data}} {{>eventCard this}} {{/each}}
-</div>
+<a class="link" href="/events/create-event">ORGANIZE AN EVENT</a>
+
+<div class="map" id="map-list"></div>
 
 {{!--
 <script>var foo = {{{ json data }}}</script> --}}

@@ -15,14 +15,12 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
-  <script src='/javascripts/script.js'></script>
 </head>
 
 <body>
   <nav>
     <div class="nav-user">
-      {{#if user}}
-      {{!-- <a id="nav-login" href="/user-profile/{{user._id}}">Profile </a> --}}
+      {{#if user}} {{!-- <a id="nav-login" href="/user-profile/{{user._id}}">Profile </a> --}}
       <a id="nav-profile" href="/user-profile/{{user._id}}"><img src="{{user.picture}}" alt="profile-pic" id="user-pic-round"></a>
       <a id="nav-logout" href="/auth/logout"> Logout ⇢</a>
       {{else}}
@@ -48,6 +46,7 @@
     {{!-- <a id="legal" href="">About</a> --}}
   </footer>
 
+  <script src='/javascripts/script.js'></script>
 </body>
 
 </html>
