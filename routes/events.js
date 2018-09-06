@@ -5,7 +5,9 @@ const upload = multer({
   dest: "public/images/uploads"
 });
 const Event = require("../models/Event");
-const { ensureLoggedIn } = require("connect-ensure-login");
+const {
+  ensureLoggedIn
+} = require("connect-ensure-login");
 
 router.get("/create-event", ensureLoggedIn("/auth/login"), (req, res, next) => {
   res.render("event-create");
@@ -13,16 +15,43 @@ router.get("/create-event", ensureLoggedIn("/auth/login"), (req, res, next) => {
 
 router.get("/event/:id", (req, res, next) => {
   const _id = req.params.id;
-  Event.findById({ _id }).then(data => {
+  Event.findById({
+    _id
+  }).then(data => {
+    console.log(data)
     res.render("event-single", data);
   });
 });
 
-router.get("/list", (req, res, next) => {
-  Event.find({}).then(data => {
-    res.render("event-multi", { data });
+
+router.post("/join/:id", (req, res, next) => {
+  const _id = req.params.id;
+  const userId = req.user._id
+  console.log(userId)
+  Event.findOneAndUpdate({
+    _id
+  }, {
+    $push: {
+      participants: {
+        _id: userId
+      }
+    }
+  }, {
+    new: true
+  }).then(data => {
+    res.render("event-single", data);
   });
 });
+
+
+router.get("/list", (req, res, next) => {
+  Event.find({}).then(data => {
+    res.render("event-multi", {
+      data
+    });
+  });
+});
+
 router.post("/list", (req, res, next) => {
   console.log(req.body)
   let filters = {
@@ -31,7 +60,7 @@ router.post("/list", (req, res, next) => {
     end: req.body.to,
     nedd: req.body.need,
     sports: sports,
-    charity: charit, 
+    charity: charit,
     local: local,
     lgbt: lgbt,
     artistical: artistical,
@@ -44,7 +73,10 @@ router.post("/list", (req, res, next) => {
 router.post("/create-event", upload.single("photo"), (req, res, next) => {
   const imgName = req.file.filename;
   const imgPath = `/images/uploads/${imgName}`;
-  const organizer = { userId: req.user._id, role: "Organizer" };
+  const organizer = {
+    _id: req.user._id,
+    role: "Organizer"
+  };
   const {
     title,
     date,
@@ -65,35 +97,35 @@ router.post("/create-event", upload.single("photo"), (req, res, next) => {
     lng
   } = req.body;
   new Event({
-    title,
-    date,
-    time,
-    address,
-    description,
-    pictures: {
-      path: imgPath,
-      name: imgName
-    },
-    needs: {
-      amount_of_ppl: amount,
-      need_desc: requirements,
-      car: car
-    },
-    tags: {
-      sports,
-      charity,
-      local,
-      lgbt,
-      artistical,
-      politics,
-      educational
-    },
-    location: {
-      type: "Point",
-      coordinates: [lng, lat]
-    },
-    participants: organizer
-  })
+      title,
+      date,
+      time,
+      address,
+      description,
+      pictures: {
+        path: imgPath,
+        name: imgName
+      },
+      needs: {
+        amount_of_ppl: amount,
+        need_desc: requirements,
+        car: car
+      },
+      tags: {
+        sports,
+        charity,
+        local,
+        lgbt,
+        artistical,
+        politics,
+        educational
+      },
+      location: {
+        type: "Point",
+        coordinates: [lng, lat]
+      },
+      participants: organizer
+    })
     .save()
     .then(data => {
       res.redirect(`event/${data._id}`);

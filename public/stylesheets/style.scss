@@ -12,17 +12,21 @@
 a {
   text-decoration: none;
 }
+
 @keyframes linkhover {
   0% {
     text-shadow: none;
   }
+
   50% {
     text-shadow: 0 0 10px $orange;
   }
+
   100% {
     text-shadow: none;
   }
 }
+
 a:hover {
   text-decoration: none;
   animation-name: linkhover;
@@ -35,6 +39,7 @@ h1 {
   margin-bottom: 30px;
   text-align: center;
 }
+
 h2 {
   font-family: "Montserrat", sans-serif;
   margin-bottom: 20px;
@@ -61,6 +66,7 @@ body {
       text-align: center;
       padding-bottom: 2vh;
     }
+
     #nav-links {
       width: 70vw;
       height: 13vh;
@@ -139,21 +145,26 @@ input {
   padding: 10px;
   margin-bottom: 10px;
 }
+
 input[type="checkbox"] {
   width: auto;
   margin: 5px;
 }
+
 input[type="checkbox"]:first-child {
   width: auto;
   margin-left: 0;
 }
+
 .tag {
   display: inline;
 }
+
 label,
 .label {
   font-weight: $bold;
 }
+
 button {
   color: white;
   border: none;
@@ -168,6 +179,7 @@ button {
   padding: 8px 20px;
   margin-bottom: 10px;
 }
+
 button:hover {
   color: white;
   border: 1px solid $blue;
@@ -179,6 +191,7 @@ button:hover {
   height: 50px;
   border-radius: 50px;
 }
+
 // #nav-user {
 //   display: flex;
 //   flex-flow: row nowrap;

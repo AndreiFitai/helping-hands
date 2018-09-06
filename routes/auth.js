@@ -5,14 +5,15 @@ const authRoutes = express.Router();
 const User = require("../models/User");
 
 passport.use(
-  new FacebookStrategy(
-    {
+  new FacebookStrategy({
       clientID: 553634161737995,
       clientSecret: "854eec2a4638eed8dbf583bbd39375ca",
       callbackURL: "http://localhost:3000/"
     },
-    function(accessToken, refreshToken, profile, done) {
-      User.findOrCreate({ profile }, function(err, user) {
+    function (accessToken, refreshToken, profile, done) {
+      User.findOrCreate({
+        profile
+      }, function (err, user) {
         if (err) {
           return done(err);
         }
@@ -36,7 +37,9 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 authRoutes.get("/login", (req, res, next) => {
-  res.render("auth/login", { message: req.flash("error") });
+  res.render("auth/login", {
+    message: req.flash("error")
+  });
 });
 
 authRoutes.post(
@@ -54,11 +57,15 @@ authRoutes.post("/signup", (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   if (email === "" || password === "") {
-    res.render("auth/login", { message: "Indicate email and password" });
+    res.render("auth/login", {
+      message: "Indicate email and password"
+    });
     return;
   }
 
-  User.findOne({ email }, "email", (err, user) => {
+  User.findOne({
+    email
+  }, "email", (err, user) => {
     if (user !== null) {
       res.render("auth/login", {
         message: "An account with this email already exists"
@@ -68,16 +75,20 @@ authRoutes.post("/signup", (req, res, next) => {
 
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
+    const defaultImg = "/images/default-user.png"
 
     const newUser = new User({
       name,
       email,
-      password: hashPass
+      password: hashPass,
+      picture: defaultImg
     });
 
     newUser.save(err => {
       if (err) {
-        res.render("auth/login", { message: "Something went wrong" });
+        res.render("auth/login", {
+          message: "Something went wrong"
+        });
       } else {
         res.redirect("/");
       }

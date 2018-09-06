@@ -21,7 +21,8 @@
       <p>{{needs.need_desc}}</p>
       <p>We need at least {{needs.amount_of_ppl}} Pairs of helping hands!</p>
     </div>
-
-    <a href="/events/join/{{id}}">Join event !</a>
+    <form action="/events/join/{{id}}" method="post">
+      <button type="submit">Join event !</button>
+    </form>
   </div>
 </div>
