@@ -1,14 +1,12 @@
-<div class="container">
   <div class="single-event-img">
     <img class="event-img" src="{{eventData.pictures.path}}" alt="{{eventData.pictures.name}}"></img>
   </div>
+<div class="container">
   <div class="event-single">
     <h1>{{eventData.title}}</h1>
     <div class="practical">
-      <div class="number">
-        <p>{{eventData.date}}</p>
-        <p>{{eventData.time}}</p>
-      </div>
+      <p>{{eventData.date}}</p>
+      <p>{{eventData.time}}</p>
       <p>{{eventData.city}}</p>
       <p>{{eventData.address}}</p>
     </div>
@@ -19,6 +17,7 @@
 
       <h2>What we'll need</h2>
       <p>{{eventData.needs.need_desc}}</p>
+      {{!-- <p>{{}}</p> --}}
       <p>We need at least {{eventData.needs.amount_of_ppl}} Pairs of helping hands!</p>
     </div>
     <div class="container-participants">
@@ -28,10 +27,10 @@
       {{/each}}
     </div>
     <form action="/events/join/{{eventData.id}}" method="post">
-      <button type="submit">Join event !</button>
+      <button type="submit">Join event!</button>
     </form>
     <form action="/events/leave/{{eventData.id}}" method="post">
-      <button type="submit">Leave event !</button>
+      <button type="submit">Leave</button>
     </form>
   </div>
 </div>
