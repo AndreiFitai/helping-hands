@@ -8,6 +8,7 @@ const eventSchema = new Schema({
   city: String,
   address: String,
   description: String,
+  short_description: String,
   date: String,
   time: String,
   pictures: {
@@ -73,7 +74,9 @@ const eventSchema = new Schema({
     reporter_id: String,
     message: String,
     votes: Boolean
-  }
+  },
 });
+
+eventSchema.index({"title":"text"})
 
 module.exports = mongoose.model("Event", eventSchema);
