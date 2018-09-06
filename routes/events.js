@@ -81,11 +81,13 @@ router.post("/leave/:id", (req, res, next) => {
 });
 
 router.get("/list", (req, res, next) => {
-  Event.find({}).then(data => {
-    res.render("event-multi", {
-      data
+  Event.find({})
+    .sort({ date: 1 })
+    .then(data => {
+      res.render("event-multi", {
+        data
+      });
     });
-  });
 });
 
 router.post("/list", (req, res, next) => {

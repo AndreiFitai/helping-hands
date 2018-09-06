@@ -5,20 +5,24 @@ const authRoutes = express.Router();
 const User = require("../models/User");
 
 passport.use(
-  new FacebookStrategy({
+  new FacebookStrategy(
+    {
       clientID: 553634161737995,
       clientSecret: "854eec2a4638eed8dbf583bbd39375ca",
       callbackURL: "http://localhost:3000/"
     },
-    function (accessToken, refreshToken, profile, done) {
-      User.findOrCreate({
-        profile
-      }, function (err, user) {
-        if (err) {
-          return done(err);
+    function(accessToken, refreshToken, profile, done) {
+      User.findOrCreate(
+        {
+          profile
+        },
+        function(err, user) {
+          if (err) {
+            return done(err);
+          }
+          done(null, user);
         }
-        done(null, user);
-      });
+      );
     }
   )
 );
@@ -63,37 +67,43 @@ authRoutes.post("/signup", (req, res, next) => {
     return;
   }
 
-  User.findOne({
-    email
-  }, "email", (err, user) => {
-    if (user !== null) {
-      res.render("auth/login", {
-        message: "An account with this email already exists"
-      });
-      return;
-    }
-
-    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
-    const defaultImg = "/images/default-user.png"
-
-    const newUser = new User({
-      name,
-      email,
-      password: hashPass,
-      picture: defaultImg
-    });
-
-    newUser.save(err => {
-      if (err) {
+  User.findOne(
+    {
+      email
+    },
+    "email",
+    (err, user) => {
+      if (user !== null) {
         res.render("auth/login", {
-          message: "Something went wrong"
+          message: "An account with this email already exists"
         });
-      } else {
-        res.redirect("/");
+        return;
       }
-    });
-  });
+
+      const salt = bcrypt.genSaltSync(bcryptSalt);
+      const hashPass = bcrypt.hashSync(password, salt);
+      const defaultImg = "/images/default-user.png";
+
+      const newUser = new User({
+        name,
+        email,
+        password: hashPass,
+        picture: defaultImg
+      });
+
+      newUser.save(err => {
+        if (err) {
+          res.render("auth/login", {
+            message: "Something went wrong"
+          });
+        } else {
+          req.logIn(newUser, function(err) {
+            return res.redirect("/");
+          });
+        }
+      });
+    }
+  );
 });
 
 authRoutes.get("/logout", (req, res) => {

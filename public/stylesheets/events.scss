@@ -5,11 +5,11 @@
   height: 20vh;
 }
 
-
 .event-img {
   height: 40vh;
   width: 100vw;
   object-fit: cover;
+}
 
 .event-single {
   margin-bottom: 30px;
@@ -40,8 +40,6 @@
   }
 }
 
-
-
 .event-create {
   @include media-breakpoint-up(md) {
     width: 80%;
@@ -61,7 +59,8 @@
     flex-flow: column nowrap;
     align-items: center;
   }
-  .date, .location {
+  .date,
+  .location {
     width: 100%;
   }
   span {
