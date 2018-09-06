@@ -223,7 +223,7 @@ var mapStyle = [
   }
 ];
 
-function startMap() {
+function startMap(data) {
   const berlin = {
     lat: 52.518528,
     lng: 13.404389
@@ -233,10 +233,8 @@ function startMap() {
     center: berlin,
     styles: mapStyle
   });
-  axios.get("/api").then(data => {
-    setMarkers(data.data);
-  });
   markers = [];
+  setMarkers(data);
 
   function setMarkers(places) {
     places.forEach(function(place) {
@@ -256,4 +254,4 @@ function startMap() {
   }
 }
 
-startMap();
+// startMap();

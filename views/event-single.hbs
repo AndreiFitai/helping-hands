@@ -1,6 +1,6 @@
-  <div class="single-event-img">
-    <img class="event-img" src="{{eventData.pictures.path}}" alt="{{eventData.pictures.name}}"></img>
-  </div>
+<div class="single-event-img">
+  <img class="event-img" src="{{eventData.pictures.path}}" alt="{{eventData.pictures.name}}"></img>
+</div>
 <div class="container">
   <div class="event-single">
     <h1>{{eventData.title}}</h1>
@@ -17,7 +17,8 @@
 
       <h2>What we'll need</h2>
       <p>{{eventData.needs.need_desc}}</p>
-      {{!-- <p>{{}}</p> --}}
+      {{!--
+      <p>{{}}</p> --}}
       <p>We need at least {{eventData.needs.amount_of_ppl}} Pairs of helping hands!</p>
     </div>
     <div class="container-participants">
@@ -34,3 +35,9 @@
     </form>
   </div>
 </div>
+<div class="map" id="map-single"></div>
+<script type="text/javascript" src="/javascripts/singleMap.js"></script>
+<script>
+  var data = {{{ json eventData }}}
+  startMap(data)
+</script>
