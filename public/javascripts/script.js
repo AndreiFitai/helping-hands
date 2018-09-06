@@ -5,3 +5,9 @@ document.addEventListener(
   },
   false
 );
+
+$(document).ready(function(){
+  $('.cards').slick({
+    setting-name: setting-value
+  });
+});
