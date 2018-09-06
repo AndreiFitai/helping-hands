@@ -5,9 +5,8 @@ const upload = multer({
   dest: "public/images/uploads"
 });
 const Event = require("../models/Event");
-const {
-  ensureLoggedIn
-} = require("connect-ensure-login");
+const User = require("../models/User");
+const { ensureLoggedIn } = require("connect-ensure-login");
 
 router.get("/create-event", ensureLoggedIn("/auth/login"), (req, res, next) => {
   res.render("event-create");
@@ -15,34 +14,47 @@ router.get("/create-event", ensureLoggedIn("/auth/login"), (req, res, next) => {
 
 router.get("/event/:id", (req, res, next) => {
   const _id = req.params.id;
+  let eventData;
   Event.findById({
     _id
   }).then(data => {
-    console.log(data)
-    res.render("event-single", data);
+    eventData = data;
+    const promiseChain = [];
+    const partArr = data.participants;
+    for (let x = 0; x < partArr.length; x++) {
+      promiseChain.push(
+        User.findById({ _id: partArr[x]._id }).then(result => {
+          return result;
+        })
+      );
+    }
+    Promise.all(promiseChain).then(particArr => {
+      res.render("event-single", { eventData, particArr });
+    });
   });
 });
-
 
 router.post("/join/:id", (req, res, next) => {
   const _id = req.params.id;
-  const userId = req.user._id
-  console.log(userId)
-  Event.findOneAndUpdate({
-    _id
-  }, {
-    $push: {
-      participants: {
-        _id: userId
+  const userId = req.user._id;
+  Event.findOneAndUpdate(
+    {
+      _id
+    },
+    {
+      $push: {
+        participants: {
+          _id: userId
+        }
       }
+    },
+    {
+      new: true
     }
-  }, {
-    new: true
-  }).then(data => {
+  ).then(data => {
     res.render("event-single", data);
   });
 });
-
 
 router.get("/list", (req, res, next) => {
   Event.find({}).then(data => {
@@ -53,6 +65,7 @@ router.get("/list", (req, res, next) => {
 });
 
 router.post("/list", (req, res, next) => {
+
   // console.log(req.body)
 
     // need: req.body.need,

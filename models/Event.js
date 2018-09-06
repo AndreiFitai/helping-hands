@@ -59,17 +59,18 @@ const eventSchema = new Schema({
     },
     coordinates: [Number]
   },
-  participants: [{
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    },
-    role: {
-      type: String,
-      enum: ["Organizer", "Volunteer"],
-      default: "Volunteer"
+  participants: [
+    {
+      _id: {
+        type: mongoose.Schema.Types.ObjectId
+      },
+      role: {
+        type: String,
+        enum: ["Organizer", "Volunteer"],
+        default: "Volunteer"
+      }
     }
-  }],
+  ],
   reported: {
     reporter_id: String,
     message: String,
