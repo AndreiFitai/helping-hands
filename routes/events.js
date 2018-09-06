@@ -152,37 +152,37 @@ router.post("/create-event", upload.single("photo"), (req, res, next) => {
   } = req.body;
   const defaultImg = "/images/default-user.png";
   new Event({
-      title,
-      date,
-      time,
-      city,
-      address,
-      description,
-      short_description: req.body.description.substring(0,97) + "...",
-      pictures: {
-        path: imgPath,
-        name: imgName
-      },
-      needs: {
-        amount_of_ppl: amount,
-        need_desc: requirements,
-        car: car
-      },
-      tags: {
-        sports,
-        charity,
-        local,
-        lgbt,
-        artistical,
-        politics,
-        educational
-      },
-      location: {
-        type: "Point",
-        coordinates: [lng, lat]
-      },
-      participants: organizer
-    })
+    title,
+    date,
+    time,
+    city,
+    address,
+    description,
+    short_description: req.body.description.substring(0, 97) + "...",
+    pictures: {
+      path: imgPath,
+      name: imgName
+    },
+    needs: {
+      amount_of_ppl: amount,
+      need_desc: requirements,
+      car: car
+    },
+    tags: {
+      sports,
+      charity,
+      local,
+      lgbt,
+      artistical,
+      politics,
+      educational
+    },
+    location: {
+      type: "Point",
+      coordinates: [lng, lat]
+    },
+    participants: organizer
+  })
     .save()
     .then(data => {
       res.redirect(`event/${data._id}`);

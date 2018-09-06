@@ -214,7 +214,7 @@ var mapStyle = [
         visibility: "on"
       },
       {
-        color: "#333bbf"
+        color: "#56D4C9"
       },
       {
         lightness: "41"
