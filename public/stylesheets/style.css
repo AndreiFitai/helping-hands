@@ -12674,13 +12674,6 @@ a.text-dark:hover, a.text-dark:focus {
     text-align: center; }
   .index #trust {
     margin: 40px 0; }
-  .index .link {
-    color: #FB7C41;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-size: 0.8em;
-    letter-spacing: 0.3em;
-    margin: 10px 0; }
 
 .event-preview {
   background: url("../images/blue.svg");
@@ -25415,22 +25408,21 @@ a.text-dark:hover, a.text-dark:focus {
   flex-flow: column nowrap;
   align-items: center; }
 
-#events-filter-container {
+.filters {
   display: flex;
-  flex-flow: row nowrap; }
-  #events-filter-container form {
-    margin-left: auto;
-    margin-right: auto; }
-    #events-filter-container form .row {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      justify-content: space-around; }
-
-#events-container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around; }
+  flex-flow: column nowrap;
+  align-items: center; }
+  .filters span, .filters label {
+    color: #747474;
+    font-size: 0.8em; }
+  .filters .row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around; }
+    .filters .row input {
+      border: none;
+      width: fit-content; }
 
 .card img {
   height: 300px;
@@ -31769,6 +31761,14 @@ a.text-dark:hover, a.text-dark:focus {
 
 a {
   text-decoration: none; }
+
+.link {
+  color: #FB7C41;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 0.8em;
+  letter-spacing: 0.3em;
+  margin: 10px 0; }
 
 @keyframes linkhover {
   0% {

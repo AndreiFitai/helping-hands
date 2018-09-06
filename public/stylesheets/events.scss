@@ -11,8 +11,8 @@
 .event-single {
   margin-bottom: 100px;
   display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+  flex-flow: column nowrap;
+  align-items: center;
 
   .practical {
     width: 50%;
@@ -23,7 +23,7 @@
     margin-bottom: 20px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    
+
     p {
       font-style: italic;
       margin: 1vh 0;
@@ -56,33 +56,27 @@
   align-items: center;
 }
 
-#events-filter-container {
+.filters {
   display: flex;
-  flex-flow: row nowrap;
-  // max-width: 300px;
-  // margin-left: auto;
-  // margin-right: auto;
+  flex-flow: column nowrap;
+  align-items: center;
 
-  // #from,
-  // #to {
-  //   width: 140px;
-  // }
-  form {
-    margin-left: auto;
-    margin-right: auto;
-    .row {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      justify-content: space-around;
+  span, label {
+    color: $grey;
+    font-size: 0.8em;
+  }
+
+  .row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+
+    input {
+      border: none;
+      width: fit-content;
     }
   }
-}
-
-#events-container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
 }
 
 .card {
