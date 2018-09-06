@@ -65,21 +65,27 @@ router.get("/list", (req, res, next) => {
 });
 
 router.post("/list", (req, res, next) => {
-  let filters = {
-    keyword: req.body.keyword,
-    start: req.body.from,
-    end: req.body.to,
-    nedd: req.body.need,
-    sports: sports,
-    charity: charit,
-    local: local,
-    lgbt: lgbt,
-    artistical: artistical,
-    politics: politics,
-    educational: educational
-  };
-  // Event.find({req.params})
-});
+
+  // console.log(req.body)
+
+    // need: req.body.need,
+    // sports: req.body.sports,
+    // charity: req.body.charity,
+    // local: req.body.local,
+    // lgbt: req.body.lgbt,
+    // artistical: req.body.artistical,
+    // politics: req.body.politics,
+    // educational: req.body.educational,
+
+  Event.find( {$or: [
+    { $text: { $search: req.body.keyword } }, 
+    { $and: [{date: {$gte: req.body.from}}, {date: {$lte: req.body.to}}]},
+  ]}
+  ).then(data => {
+    console.log(data)
+    res.render("event-multi", {data})
+  })
+})
 
 router.post("/create-event", upload.single("photo"), (req, res, next) => {
   const imgName = req.file.filename;
@@ -108,35 +114,36 @@ router.post("/create-event", upload.single("photo"), (req, res, next) => {
     lng
   } = req.body;
   new Event({
-    title,
-    date,
-    time,
-    address,
-    description,
-    pictures: {
-      path: imgPath,
-      name: imgName
-    },
-    needs: {
-      amount_of_ppl: amount,
-      need_desc: requirements,
-      car: car
-    },
-    tags: {
-      sports,
-      charity,
-      local,
-      lgbt,
-      artistical,
-      politics,
-      educational
-    },
-    location: {
-      type: "Point",
-      coordinates: [lng, lat]
-    },
-    participants: organizer
-  })
+      title,
+      date,
+      time,
+      address,
+      description,
+      short_description: req.body.description.substring(0,97) + "...",
+      pictures: {
+        path: imgPath,
+        name: imgName
+      },
+      needs: {
+        amount_of_ppl: amount,
+        need_desc: requirements,
+        car: car
+      },
+      tags: {
+        sports,
+        charity,
+        local,
+        lgbt,
+        artistical,
+        politics,
+        educational
+      },
+      location: {
+        type: "Point",
+        coordinates: [lng, lat]
+      },
+      participants: organizer
+    })
     .save()
     .then(data => {
       res.redirect(`event/${data._id}`);

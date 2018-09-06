@@ -41,7 +41,6 @@ router.post(
     let params = {
       name: req.body.name,
       email: req.body.email,
-      // picture: imgPath,
       bio: req.body.bio,
       options: {
         biweekly_email: req.body.mailopt1,
