@@ -12662,6 +12662,9 @@ a.text-dark:hover, a.text-dark:focus {
       font-family: "Montserrat", sans-serif;
       font-size: 1.5em; }
 
+#index-container {
+  padding-left: 0px; }
+
 .index {
   display: flex;
   flex-flow: column nowrap;
@@ -25421,6 +25424,10 @@ a.text-dark:hover, a.text-dark:focus {
 .card img {
   height: 300px;
   object-fit: cover; }
+
+.container-participants {
+  display: flex;
+  flex-flow: row nowrap; }
 
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)

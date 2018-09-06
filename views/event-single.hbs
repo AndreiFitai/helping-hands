@@ -1,25 +1,31 @@
 <div class="container">
   <div class="single-event-img">
-    <img class="event-img" src="{{pictures.path}}" alt="{{pictures.name}}"></img>
+    <img class="event-img" src="{{eventData.pictures.path}}" alt="{{eventData.pictures.name}}"></img>
   </div>
   <div class="event-single">
-    <h1>{{title}}</h1>
+    <h1>{{eventData.title}}</h1>
     <div class="practical">
       <div class="number">
-        <p>{{date}}</p>
-        <p>{{time}}</p>
+        <p>{{eventData.date}}</p>
+        <p>{{eventData.time}}</p>
       </div>
-      <p>{{city}}</p>
-      <p>{{address}}</p>
+      <p>{{eventData.city}}</p>
+      <p>{{eventData.address}}</p>
     </div>
 
     <div class="info">
       <h2>What we're changing</h2>
-      <p>{{description}}</p>
+      <p>{{eventData.description}}</p>
 
       <h2>What we'll need</h2>
-      <p>{{needs.need_desc}}</p>
-      <p>We need at least {{needs.amount_of_ppl}} Pairs of helping hands!</p>
+      <p>{{eventData.needs.need_desc}}</p>
+      <p>We need at least {{eventData.needs.amount_of_ppl}} Pairs of helping hands!</p>
+    </div>
+    <div class="container-participants">
+      {{#each particArr}}
+      <img src="{{this.picture}}" alt="profile-pic" id="user-pic-round">
+      <p>{{this.name}}</p>
+      {{/each}}
     </div>
     <form action="/events/join/{{id}}" method="post">
       <button type="submit">Join event !</button>

@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" id="index-container">
 
   <div class="index">
 
@@ -23,15 +23,7 @@
     <div class="event-preview">
       <h2>Latest Events</h2>
       <div class="cards">
-        <div class="card-mini">
-          <img src="https://via.placeholder.com/200x200" alt="event-img"/>
-          <h3>What if this is a reaally long title</h3>
-          <div class="date">
-            <p>14.7.1789 || 14:00</p>
-            <p>Bastille, Paris</p>
-          </div>
-          <a href="#">view details</a>
-        </div>
+        {{#each data}} {{>eventCard this}} {{/each}}
       </div>
       <a class="link" href="#">VIEW ALL EVENTS</a>
     </div>
