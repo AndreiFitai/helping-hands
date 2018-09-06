@@ -39,8 +39,11 @@
 
 <a class="link" href="/events/create-event">ORGANIZE AN EVENT</a>
 
-{{!--
-<script>var foo = {{{ json data }}}</script> --}}
 <div class="map" id="map-list"></div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-<script src="/javascripts/listMap.js"></script>
+<script type="text/javascript" src="/javascripts/listMap.js"></script>
+<script>
+  var data = {{{ json data }}}
+  startMap(data)
+</script>

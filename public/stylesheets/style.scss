@@ -72,12 +72,11 @@ body {
       flex-flow: row nowrap;
       justify-content: center;
       align-items: center;
-      
+
       #nav-profile {
         margin-right: 35vw;
         margin-top: 1vh;
         margin-bottom: 1vh;
-
       }
       #nav-login {
         color: $grey;
@@ -157,7 +156,7 @@ body {
 }
 
 .container {
-  min-height: 100vh;
+  min-height: 70vh;
   width: 80vw;
   margin-top: 50px;
   margin-bottom: 50px;
