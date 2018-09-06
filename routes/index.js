@@ -9,7 +9,9 @@ const Event = require("../models/Event");
 const { ensureLoggedIn } = require("connect-ensure-login");
 
 router.get("/", (req, res, next) => {
-  res.render("index");
+  Event.find({}).then(data => {
+    res.render("index", { data });
+  });
 });
 
 router.get(
@@ -62,10 +64,8 @@ router.post(
       const imgPath = `/images/uploads/${imgName}`;
       params.picture = imgPath;
     }
-    console.log(params);
     User.findOneAndUpdate({ _id: req.user._id }, params, { new: true }).then(
       data => {
-        console.log(data);
         res.redirect("/user-profile/" + req.user._id);
       }
     );
@@ -81,3 +81,5 @@ router.get("/about", (req, res, next) => {
 });
 
 module.exports = router;
+
+//algolia
