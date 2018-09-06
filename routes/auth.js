@@ -1,35 +1,17 @@
 const express = require("express");
 const passport = require("passport");
-const FacebookStrategy = require("passport-facebook").Strategy;
 const authRoutes = express.Router();
 const User = require("../models/User");
 
-passport.use(
-  new FacebookStrategy(
-    {
-      clientID: 553634161737995,
-      clientSecret: "854eec2a4638eed8dbf583bbd39375ca",
-      callbackURL: "http://localhost:3000/"
-    },
-    function(accessToken, refreshToken, profile, done) {
-      User.findOrCreate(
-        {
-          profile
-        },
-        function(err, user) {
-          if (err) {
-            return done(err);
-          }
-          done(null, user);
-        }
-      );
-    }
-  )
+authRoutes.get(
+  "/facebook",
+  passport.authenticate("facebook", {
+    profileFields: ["id", "displayName", "photos", "email"]
+  })
 );
-authRoutes.get("/facebook", passport.authenticate("facebook"));
 
 authRoutes.get(
-  "/auth/facebook/callback",
+  "/facebook/callback",
   passport.authenticate("facebook", {
     successRedirect: "/",
     failureRedirect: "/login"
