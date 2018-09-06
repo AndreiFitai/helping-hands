@@ -35,7 +35,7 @@ router.get("/event/:id", (req, res, next) => {
 });
 
 router.post("/join/:id", (req, res, next) => {
-  console.log(req.body)
+  console.log(req.body);
   const _id = req.params.id;
   const userId = req.user._id;
   Event.findOneAndUpdate(
@@ -53,12 +53,12 @@ router.post("/join/:id", (req, res, next) => {
       new: true
     }
   ).then(data => {
-    res.redirect("/events/event/"+_id);
+    res.redirect("/events/event/" + _id);
   });
 });
 
 router.post("/leave/:id", (req, res, next) => {
-  console.log(req.body)
+  console.log(req.body);
   const _id = req.params.id;
   const userId = req.user._id;
   Event.findOneAndUpdate(
@@ -76,7 +76,7 @@ router.post("/leave/:id", (req, res, next) => {
       new: true
     }
   ).then(data => {
-    res.redirect("/events/event/"+_id);
+    res.redirect("/events/event/" + _id);
   });
 });
 
@@ -89,31 +89,43 @@ router.get("/list", (req, res, next) => {
 });
 
 router.post("/list", (req, res, next) => {
-
   // console.log(req.body)
 
-    // need: req.body.need,
-    // sports: req.body.sports,
-    // charity: req.body.charity,
-    // local: req.body.local,
-    // lgbt: req.body.lgbt,
-    // artistical: req.body.artistical,
-    // politics: req.body.politics,
-    // educational: req.body.educational,
+  // need: req.body.need,
+  // sports: req.body.sports,
+  // charity: req.body.charity,
+  // local: req.body.local,
+  // lgbt: req.body.lgbt,
+  // artistical: req.body.artistical,
+  // politics: req.body.politics,
+  // educational: req.body.educational,
 
-  Event.find( {$and: [
-    { $text: { $search: req.body.keyword } }, 
-    { $and: [{date: {$gte: req.body.from}}, {date: {$lte: req.body.to}}]},
-  ]}
-  ).then(data => {
-    console.log(data)
-    res.render("event-multi", {data})
-  })
-})
+  Event.find({
+    $and: [
+      { $text: { $search: req.body.keyword } },
+      {
+        $and: [
+          { date: { $gte: req.body.from } },
+          { date: { $lte: req.body.to } }
+        ]
+      }
+    ]
+  }).then(data => {
+    console.log(data);
+    res.render("event-multi", { data });
+  });
+});
 
 router.post("/create-event", upload.single("photo"), (req, res, next) => {
-  const imgName = req.file.filename;
-  const imgPath = `/images/uploads/${imgName}`;
+  let imgName;
+  let imgPath;
+  if (req.file) {
+    imgName = req.file.filename;
+    imgPath = `/images/uploads/${imgName}`;
+  } else {
+    imgName = "default-image";
+    imgPath = `/images/default-event.png`;
+  }
   const organizer = {
     _id: req.user._id,
     role: "Organizer"
@@ -138,6 +150,7 @@ router.post("/create-event", upload.single("photo"), (req, res, next) => {
     lat,
     lng
   } = req.body;
+  const defaultImg = "/images/default-user.png";
   new Event({
       title,
       date,

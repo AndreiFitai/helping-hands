@@ -10,6 +10,7 @@ const { ensureLoggedIn } = require("connect-ensure-login");
 
 router.get("/", (req, res, next) => {
   Event.find({}).then(data => {
+    data = data.slice(0, 4);
     res.render("index", { data });
   });
 });
