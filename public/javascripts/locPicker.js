@@ -256,7 +256,7 @@ function geocodeAddress(geocoder, map) {
       if (status === "OK") {
         map.setCenter(results[0].geometry.location);
         latitude.value = results[0].geometry.location.lat();
-        longitude = results[0].geometry.location.lng();
+        longitude.value = results[0].geometry.location.lng();
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
