@@ -1,6 +1,7 @@
 <div class="single-event-img">
   <img class="event-img" src="{{eventData.pictures.path}}" alt="{{eventData.pictures.name}}"></img>
 </div>
+
 <div class="container">
   <div class="event-single">
     <h1>{{eventData.title}}</h1>
@@ -17,10 +18,30 @@
 
       <h2>What we'll need</h2>
       <p>{{eventData.needs.need_desc}}</p>
-      {{!--
-      <p>{{}}</p> --}}
       <p>We need at least {{eventData.needs.amount_of_ppl}} Pairs of helping hands!</p>
+      {{#if eventData.needs.car}}
+      <p>We will also need a car.</p>
+      {{/if}}
     </div>
+
+    <div class="interests">
+      {{#if user.interests.interest_educational}}
+      <span>Education</span>
+      {{/if}} {{#if user.interests.interest_politics}}
+      <span>Politics</span>
+      {{/if}} {{#if user.interests.interest_artistical}}
+      <span>Art</span>
+      {{/if}} {{#if user.interests.interest_lgbt}}
+      <span>LGBTQ</span>
+      {{/if}} {{#if user.interests.interest_local}}
+      <span>Local Community</span>
+      {{/if}} {{#if user.interests.interest_charity}}
+      <span>Charity</span>
+      {{/if}} {{#if user.interests.interest_sports}}
+      <span>Sports</span>
+      {{/if}}
+    </div>
+    
     <div class="container-participants">
       {{#each particArr}}
       <img src="{{this.picture}}" alt="profile-pic" id="user-pic-round">

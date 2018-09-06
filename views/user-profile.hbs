@@ -1,15 +1,40 @@
 <div class="container">
-  <div id="user-details-container">
-    <img src="{{user.picture}}" />
 
-    <p>name</p>
+  <div class="profile">
+
+    <img class="profile-img" src="{{user.picture}}" />
+
     <h1>{{user.name}}</h1>
 
-    <p>About me:</p>
-    <h4>{{user.bio}}</h4>
+    <h2>About me:</h2>
+    <p>{{user.bio}}</p>
+
+    <h2>My Interest:</h2>
+    <div class="interests">
+      {{#if user.interests.interest_educational}}
+      <span>Education</span>
+      {{/if}} {{#if user.interests.interest_politics}}
+      <span>Politics</span>
+      {{/if}} {{#if user.interests.interest_artistical}}
+      <span>Art</span>
+      {{/if}} {{#if user.interests.interest_lgbt}}
+      <span>LGBTQ</span>
+      {{/if}} {{#if user.interests.interest_local}}
+      <span>Local Community</span>
+      {{/if}} {{#if user.interests.interest_charity}}
+      <span>Charity</span>
+      {{/if}} {{#if user.interests.interest_sports}}
+      <span>Sports</span>
+      {{/if}}
+    </div>
+
+    <div id="event-history">
+    </div>
+
+    <form action="/user-edit">
+      <button type="submit">Edit your Profile</button>
+    </form>
+
   </div>
-  <div id="event-history">
-    {{!-- {{}} --}}
-  </div>
-  <a href="/user-edit">Edit profile</a>
+
 </div>
