@@ -89,6 +89,10 @@
   flex-flow: column nowrap;
   align-items: center;
 
+  .card-columns {
+    width: 80vw;
+  }
+
   h2 {
     color: white;
     font-family: "Montserrat", sans-serif;
@@ -98,43 +102,25 @@
     margin: 0;
   }
 
-  .cards {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
+  img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
   }
 
-  .card-mini {
-    background-color: white;
-    border-radius: 3px;
-    // box-shadow: 0 2px 20px 1px $orange;
-    margin: 40px 0;
-    padding: 20px;
+  h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2em;
+  }
+
+  .date {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: space-around;
     align-items: center;
 
-    img {
-      width: 200px;
-      height: 200px;
-      margin-bottom: 20px;
-    }
-
-    h3 {
-      font-family: "Montserrat", sans-serif;
-      font-size: 1.2em;
-    }
-
-    .date {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: space-around;
-      align-items: center;
-
-      p {
-        margin: 0 5px;
-      }
+    p {
+      margin: 0 5px;
     }
   }
 }
