@@ -30,20 +30,16 @@
   align-items: center;
   color: white;
 
-  img {
-    width: 50%;
-    // padding: px;
-    // background: url("../images/circle_white.svg");
-    // background-size: cover;
-    // background-position: center;
-    // background: rgba(255, 255, 255, 0.7);
-    // border-radius: 150px;
-    // margin-bottom: 80px;
-  }
-
   .center {
     text-align: center;
 
+    img {
+      width: 50%;
+      // background-image: url("../images/circle_orange.svg");
+      // background-repeat: no-repeat;
+      // background-size: 80%;
+      // background-position: center;
+    }
     #logo {
       font-family: "Montserrat", sans-serif;
       font-size: 4em;
@@ -78,10 +74,9 @@
 }
 
 .event-preview {
-  background: url("../images/blue.svg");
+  background: url("../images/turquoise.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom;
   width: 100vw;
   padding: 40px 0;
   margin: 60px 0;
@@ -99,28 +94,9 @@
     font-weight: 400;
     font-size: 1.2em;
     letter-spacing: 0.1em;
-    margin: 0;
+    margin-bottom: 35px;
   }
-
-  img {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 20px;
-  }
-
-  h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.2em;
-  }
-
-  .date {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-    align-items: center;
-
-    p {
-      margin: 0 5px;
-    }
+  .link {
+    margin-top: 50px;
   }
 }

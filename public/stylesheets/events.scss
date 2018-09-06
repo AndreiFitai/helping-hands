@@ -16,6 +16,9 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  @include media-breakpoint-up(md) {
+    width: 70%;
+  }
 
   .practical {
     width: 50vw;
@@ -38,14 +41,18 @@
     font-size: 1.2em;
     line-height: 3em;
   }
-}
+
+
+  .container-participants {
+    display: flex;
+    flex-flow: row nowrap;
+  }
 
 .event-create {
   @include media-breakpoint-up(md) {
     width: 80%;
   }
 }
-
 .event-create {
   display: flex;
   flex-flow: column nowrap;
@@ -81,7 +88,6 @@
   input[type="text"] {
     border-color: grey;
   }
-
   span,
   label {
     color: $grey;
@@ -95,13 +101,9 @@
 }
 
 .card {
+  
   img {
     height: 200px;
     object-fit: cover;
   }
-}
-
-.container-participants {
-  display: flex;
-  flex-flow: row nowrap;
 }

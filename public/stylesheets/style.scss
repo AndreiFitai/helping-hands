@@ -4,6 +4,13 @@
 @import "events";
 @import "users";
 
+
+#user-pic-round {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
 *:focus {
   outline-style: none;
   box-shadow: none;
@@ -243,11 +250,3 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
-
-
-#user-pic-round {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-}
-

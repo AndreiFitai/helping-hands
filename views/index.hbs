@@ -22,15 +22,14 @@
 
     <div class="event-preview">
       <h2>Latest Events</h2>
-      <div class="card-columns">
+      <div class="card-deck">
         {{#each data}} {{>eventCard this}} {{/each}}
       </div>
-      <a class="link" href="#">VIEW ALL EVENTS</a>
+      <a class="link" href="/events/list">VIEW ALL EVENTS</a>
     </div>
 
-    <a class="link" href="/auth/login">REGISTER AND HELP</a>
-
     <a class="link" href="/events/create-event">ORGANIZE AN EVENT</a>
+    <a class="link" href="/auth/login">REGISTER AND HELP</a>
 
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
