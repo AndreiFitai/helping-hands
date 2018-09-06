@@ -12627,7 +12627,9 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 .map {
-  height: 81vh;
+  height: 81vh; }
+
+#map-main {
   z-index: -1; }
 
 #opener::before {
