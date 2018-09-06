@@ -1,4 +1,4 @@
-const mapStyle = [
+var mapStyle = [
   {
     featureType: "all",
     elementType: "labels",
@@ -40,7 +40,7 @@ const mapStyle = [
     elementType: "all",
     stylers: [
       {
-        visibility: "off"
+        visibility: "on"
       }
     ]
   },
@@ -49,7 +49,7 @@ const mapStyle = [
     elementType: "all",
     stylers: [
       {
-        visibility: "off"
+        visibility: "on"
       }
     ]
   },
@@ -73,7 +73,7 @@ const mapStyle = [
     elementType: "all",
     stylers: [
       {
-        visibility: "off"
+        visibility: "on"
       }
     ]
   },
@@ -91,7 +91,7 @@ const mapStyle = [
     elementType: "all",
     stylers: [
       {
-        visibility: "off"
+        visibility: "on"
       }
     ]
   },
@@ -130,7 +130,7 @@ const mapStyle = [
     elementType: "all",
     stylers: [
       {
-        visibility: "off"
+        visibility: "on"
       }
     ]
   },
@@ -139,7 +139,7 @@ const mapStyle = [
     elementType: "labels",
     stylers: [
       {
-        visibility: "off"
+        visibility: "on"
       }
     ]
   },
@@ -157,7 +157,7 @@ const mapStyle = [
     elementType: "labels",
     stylers: [
       {
-        visibility: "off"
+        visibility: "on"
       }
     ]
   },
@@ -166,7 +166,7 @@ const mapStyle = [
     elementType: "labels.icon",
     stylers: [
       {
-        visibility: "off"
+        visibility: "on"
       }
     ]
   },
@@ -184,7 +184,7 @@ const mapStyle = [
     elementType: "labels.text",
     stylers: [
       {
-        visibility: "off"
+        visibility: "on"
       }
     ]
   },
@@ -228,12 +228,10 @@ function startMap() {
     lat: 52.518528,
     lng: 13.404389
   };
-  const map = new google.maps.Map(document.getElementById("map-main"), {
-    zoom: 13,
+  const map = new google.maps.Map(document.getElementById("map-list"), {
+    zoom: 14,
     center: berlin,
-    styles: mapStyle,
-    disableDefaultUI: true,
-    gestureHandling: "none" //'greedy'
+    styles: mapStyle
   });
   axios.get("/api").then(data => {
     setMarkers(data.data);
@@ -242,7 +240,7 @@ function startMap() {
 
   function setMarkers(places) {
     places.forEach(function(place) {
-      let marker;
+      let marker = "../images/location-small.png";
       const center = {
         lat: place.location.coordinates[1],
         lng: place.location.coordinates[0]
@@ -251,7 +249,7 @@ function startMap() {
         position: center,
         map: map,
         title: place.name,
-        icon: "../images/location-small.png"
+        icon: marker
       });
       markers.push(pin);
     });
