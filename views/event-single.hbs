@@ -27,8 +27,11 @@
       <p>{{this.name}}</p>
       {{/each}}
     </div>
-    <form action="/events/join/{{id}}" method="post">
+    <form action="/events/join/{{eventData.id}}" method="post">
       <button type="submit">Join event !</button>
+    </form>
+    <form action="/events/leave/{{eventData.id}}" method="post">
+      <button type="submit">Leave event !</button>
     </form>
   </div>
 </div>
