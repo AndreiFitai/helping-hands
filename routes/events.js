@@ -35,6 +35,7 @@ router.get("/event/:id", (req, res, next) => {
 });
 
 router.post("/join/:id", (req, res, next) => {
+  console.log(req.body)
   const _id = req.params.id;
   const userId = req.user._id;
   Event.findOneAndUpdate(
@@ -42,7 +43,7 @@ router.post("/join/:id", (req, res, next) => {
       _id
     },
     {
-      $push: {
+      $addToSet: {
         participants: {
           _id: userId
         }
@@ -52,7 +53,30 @@ router.post("/join/:id", (req, res, next) => {
       new: true
     }
   ).then(data => {
-    res.render("event-single", data);
+    res.redirect("/events/event/"+_id);
+  });
+});
+
+router.post("/leave/:id", (req, res, next) => {
+  console.log(req.body)
+  const _id = req.params.id;
+  const userId = req.user._id;
+  Event.findOneAndUpdate(
+    {
+      _id
+    },
+    {
+      $pull: {
+        participants: {
+          _id: userId
+        }
+      }
+    },
+    {
+      new: true
+    }
+  ).then(data => {
+    res.redirect("/events/event/"+_id);
   });
 });
 
@@ -77,7 +101,7 @@ router.post("/list", (req, res, next) => {
     // politics: req.body.politics,
     // educational: req.body.educational,
 
-  Event.find( {$or: [
+  Event.find( {$and: [
     { $text: { $search: req.body.keyword } }, 
     { $and: [{date: {$gte: req.body.from}}, {date: {$lte: req.body.to}}]},
   ]}
