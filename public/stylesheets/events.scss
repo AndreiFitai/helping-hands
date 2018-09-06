@@ -10,23 +10,23 @@
 
 .event-single {
   margin-bottom: 100px;
-
-  .practical {
-    display: flex;
+  display: flex;
     flex-flow: column nowrap;
     align-items: center;
+
+  .practical {
+    width: 50%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 20px;
-
-    .number {
-      display: flex;
-      flex-flow: row nowrap;
-
-      p:first-child {
-        margin-right: 10px;
-      }
-    }
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    
     p {
       font-style: italic;
+      margin: 1vh 0;
     }
   }
 
@@ -38,8 +38,8 @@
 }
 
 .event-img {
-  height: 400px;
-  width: 400px;
+  height: 40vh;
+  width: 100vw;
   object-fit: cover;
 }
 

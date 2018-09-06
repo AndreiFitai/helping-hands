@@ -22,11 +22,11 @@
 
 <body>
   <nav>
-    <div id="nav-user">
+    <div class="nav-user">
       {{#if user}}
-      <a id="nav-login" href="/user-profile/{{user._id}}">Profile </a>
-      <a id="nav-login" href="/user-profile/{{user._id}}"><img src="{{user.picture}}" alt="profile-pic" id="user-pic-round"></a>
-      <a id="nav-login" href="/auth/logout"> Logout</a>
+      {{!-- <a id="nav-login" href="/user-profile/{{user._id}}">Profile </a> --}}
+      <a id="nav-profile" href="/user-profile/{{user._id}}"><img src="{{user.picture}}" alt="profile-pic" id="user-pic-round"></a>
+      <a id="nav-logout" href="/auth/logout"> Logout ⇢</a>
       {{else}}
       <a id="nav-login" href="/auth/login">Log in or Sign up ⇢</a>
       {{/if}}
