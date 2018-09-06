@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="profile">
 
     <img class="profile-img" src="{{user.picture}}" />
@@ -30,11 +29,9 @@
 
     <div id="event-history">
     </div>
-
+      {{#if edit}}
     <form action="/user-edit">
       <button type="submit">Edit your Profile</button>
     </form>
-
+    {{/if}}
   </div>
-
-</div>

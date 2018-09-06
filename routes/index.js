@@ -19,12 +19,11 @@ router.get(
   "/user-profile/:id",
   ensureLoggedIn("/auth/login"),
   (req, res, next) => {
-    User.find({ _id: req.params.id })
-      .populate("event")
-      .exec()
-      .then(data => {
-        res.render("user-profile", data);
-      });
+    User.find({ _id: req.params.id }).then(data => {
+      let edit = false;
+      if (req.params.id === req.user._id) edit = true;
+      res.render("user-profile", data[0], edit);
+    });
   }
 );
 
