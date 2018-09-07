@@ -1,28 +1,28 @@
 <div class="container">
   <div class="profile">
 
-    <img class="profile-img" src="{{user.picture}}" />
+    <img class="profile-img" src="{{user_data.picture}}" />
 
-    <h1>{{user.name}}</h1>
+    <h1>{{user_data.name}}</h1>
 
     <h2>About me:</h2>
-    <p>{{user.bio}}</p>
+    <p>{{user_data.bio}}</p>
 
     <h2>My Interest:</h2>
     <div class="interests">
-      {{#if user.interests.interest_educational}}
+      {{#if user_data.interests.interest_educational}}
       <span>Education</span>
-      {{/if}} {{#if user.interests.interest_politics}}
+      {{/if}} {{#if user_data.interests.interest_politics}}
       <span>Politics</span>
-      {{/if}} {{#if user.interests.interest_artistical}}
+      {{/if}} {{#if user_data.interests.interest_artistical}}
       <span>Art</span>
-      {{/if}} {{#if user.interests.interest_lgbt}}
+      {{/if}} {{#if user_data.interests.interest_lgbt}}
       <span>LGBTQ</span>
-      {{/if}} {{#if user.interests.interest_local}}
+      {{/if}} {{#if user_data.interests.interest_local}}
       <span>Local Community</span>
-      {{/if}} {{#if user.interests.interest_charity}}
+      {{/if}} {{#if user_data.interests.interest_charity}}
       <span>Charity</span>
-      {{/if}} {{#if user.interests.interest_sports}}
+      {{/if}} {{#if user_data.interests.interest_sports}}
       <span>Sports</span>
       {{/if}}
 
@@ -30,7 +30,6 @@
 
     <div id="event-history">
     </div>
-
     {{#if edit}}
     <form action="/user-edit">
       <button type="submit">Edit your Profile</button>
