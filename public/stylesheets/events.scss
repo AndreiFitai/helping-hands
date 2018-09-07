@@ -29,24 +29,24 @@
     margin-bottom: 20px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-
-    p {
-      font-style: italic;
-      margin: 1vh 0;
-    }
   }
 
-  h2 {
-    font-weight: $bold;
-    font-size: 1.2em;
-    line-height: 3em;
+  p {
+    font-style: italic;
+    margin: 1vh 0;
   }
+}
 
+h2 {
+  font-weight: $bold;
+  font-size: 1.2em;
+  line-height: 3em;
+}
 
-  .container-participants {
-    display: flex;
-    flex-flow: row nowrap;
-  }
+.container-participants {
+  display: flex;
+  flex-flow: row nowrap;
+}
 
 .event-create {
   @include media-breakpoint-up(md) {
@@ -101,7 +101,6 @@
 }
 
 .card {
-  
   img {
     height: 200px;
     object-fit: cover;

@@ -21,8 +21,12 @@ router.get(
   (req, res, next) => {
     User.find({ _id: req.params.id }).then(data => {
       let edit = false;
-      if (req.params.id === req.user._id) edit = true;
-      res.render("user-profile", data[0], edit);
+      const curr_user_id = JSON.stringify(req.user._id).replace(/['"]+/g, "");
+      if (req.params.id === curr_user_id) {
+        edit = true;
+      }
+      const user_data = data[0];
+      res.render("user-profile", { user_data, edit });
     });
   }
 );

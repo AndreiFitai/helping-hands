@@ -25368,16 +25368,18 @@ a.text-dark:hover, a.text-dark:focus {
     margin-bottom: 20px;
     border-top: 1px solid black;
     border-bottom: 1px solid black; }
-    .event-single .practical p {
-      font-style: italic;
-      margin: 1vh 0; }
-  .event-single h2 {
-    font-weight: 700;
-    font-size: 1.2em;
-    line-height: 3em; }
-  .event-single .container-participants {
-    display: flex;
-    flex-flow: row nowrap; }
+  .event-single p {
+    font-style: italic;
+    margin: 1vh 0; }
+
+h2 {
+  font-weight: 700;
+  font-size: 1.2em;
+  line-height: 3em; }
+
+.container-participants {
+  display: flex;
+  flex-flow: row nowrap; }
 
 @media (min-width: 768px) {
   .event-create {
@@ -31972,10 +31974,5 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s; }
-
-#user-pic-round {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px; }
 
 /*# sourceMappingURL=style.css.map */
