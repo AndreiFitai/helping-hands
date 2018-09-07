@@ -4,6 +4,7 @@
 <head>
   <title>Helping Hands</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" type="image/png" href="/images/fav.png"/>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
   <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -21,7 +22,7 @@
   <nav>
     <div class="nav-user">
       {{#if user}}
-      <a id="nav-profile" href="/user-profile/{{user._id}}"><img src="{{user.picture}}" alt="profile-pic" id="user-pic-round"></a>
+      <a id="nav-profile" href="/user-profile/{{user._id}}"><div id="user-pic-round"><img src="{{user.picture}}" alt="profile-pic"></div></a>
       <a id="nav-logout" href="/auth/logout"> Logout ⇢</a>
       {{else}}
       <a id="nav-login" href="/auth/login">Log in or Sign up ⇢</a>

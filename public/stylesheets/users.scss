@@ -45,6 +45,13 @@
     height: 200px;
     border-radius: 50%;
     margin-bottom: 20px;
+    overflow: hidden;
+
+    img {
+      object-fit: contain;
+      width: 200%;
+      vertical-align: middle;
+    }
   }
 }
 .interests {
