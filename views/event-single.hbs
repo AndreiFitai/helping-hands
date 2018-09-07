@@ -55,12 +55,15 @@
       </div>
       {{/each}}
     </div>
-    <form action="/events/join/{{eventData.id}}" method="post">
-      <button type="submit">Join event!</button>
-    </form>
+    {{#if notOrganizer}} {{#if joined}}
     <form action="/events/leave/{{eventData.id}}" method="post">
       <button type="submit">Leave</button>
     </form>
+    {{else}}
+    <form action="/events/join/{{eventData.id}}" method="post">
+      <button type="submit">Join event!</button>
+    </form>
+    {{/if}} {{/if}}
   </div>
 </div>
 
