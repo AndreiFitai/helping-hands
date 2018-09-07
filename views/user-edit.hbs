@@ -4,17 +4,15 @@
     <h1>Edit your Profile</h1>
 
     <form id="user-edit" action="/user-edit" method="post" enctype="multipart/form-data">
-      <label for="name">Displayed Name {{name}}</label>
       <input type="text" name="name" required="true" value="{{name}}">
 
-      <label for="email">Change your E-mail</label>
+      <span>Change your E-mail</span>
       <input type="email" name="email" required="true" value="{{email}}">
 
-      <label for="bio">Your Motivation</label>
       <p>Why do you want to help your local community? What is your mission? Or just put something random.</p>
       <input type="textarea" name="bio" required="true" value="{{bio}}">
 
-      <p class="label">Your Interests</p>
+      <span>Your Interests</span>
       <div class="list">
         <input type="checkbox" name="sports" value="true"><p class="tag" {{#if interests.sport}}checked{{/if}}>Sport</p>
         <input type="checkbox" name="charity" value="true"><p class="tag" {{#if interests.charity}}checked{{/if}}>Charity</p>
@@ -25,12 +23,12 @@
         <input type="checkbox" name="educational" value="true"><p class="tag" {{#if interests.education}}checked{{/if}}>Education</p>
       </div>
       <br>
-
-      <label for="photo">Profile-Picture</label>
+      
+      <span>Profile-Picture</span>
       <img src="{{picture}}" alt="">
       <input type="file" name="photo">
 
-      <p class="label">Set your E-Mail Preferences</p>
+      <span>Set your E-Mail Preferences</span>
       <input type="checkbox" name="mailopt1" value="true" {{#if options.biweekly_email}}checked{{/if}}><p class="tag">Receive
         a weekly newsletter.</p>
       <input type="checkbox" name="mailopt2" value="true" {{#if options.event_msg_email}}checked{{/if}}><p class="tag">Receive
