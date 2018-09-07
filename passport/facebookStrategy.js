@@ -28,7 +28,6 @@ passport.use(
           new: true
         },
         function(err, user) {
-          // console.log(user);
           if (err) {
             return done(err);
           }

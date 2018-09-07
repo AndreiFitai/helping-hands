@@ -236,6 +236,8 @@ function startMap(data) {
   markers = [];
   setMarkers(data);
 
+  var infowindow = new google.maps.InfoWindow({});
+
   function setMarkers(places) {
     places.forEach(function(place) {
       let marker = "../images/location-small.png";
@@ -249,9 +251,27 @@ function startMap(data) {
         title: place.name,
         icon: marker
       });
+
+      var contentString = ` <a href="/events/event/${place._id}">
+        <h5 class="card-title">${place.title}</h5>
+        </a>
+      <div class="list">
+      <div id="card-time">
+        <p>${place.date}</p>
+        <p>${place.time}</p>
+      </div>
+        <p>${place.address}</p>
+        <p>${place.city}</p>
+      </div>`;
+
+      pin.addListener("click", function() {
+        infowindow.close();
+        infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+        infowindow.open(map, pin);
+      });
       markers.push(pin);
     });
   }
 }
-
-// startMap();
