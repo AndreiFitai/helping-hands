@@ -41,11 +41,17 @@
       {{/if}}
     </div>
 
+    <h2>This Event is Organized by:</h2>
+    <div id="moved_org"></div>
+
+    <h2>Helping Hands so far:</h2>
     <div class="container-participants">
       {{#each particArr}}
       <div class="{{this.role}}">
-        <a href="/user-profile/{{this._id}}"><img src="{{this.picture}}" alt="profile-pic" id="user-pic-round"></a>
-        <p>{{this.name}}</p>
+        <div class="role-container">
+          <a href="/user-profile/{{this._id}}"><img src="{{this.picture}}" alt="profile-pic" id="user-pic-round"></a>
+          <p>{{this.name}}</p>
+        </div>
       </div>
       {{/each}}
     </div>

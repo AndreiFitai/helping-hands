@@ -17,9 +17,8 @@ $(document).ready(function() {
 
   $("#today").val(new Date().toDateInputValue());
   $("#future").val(
-    new Date(future.setDate(future.getDate() + 1)).toDateInputValue()
+    new Date(future.setDate(future.getDate() + 30)).toDateInputValue()
   );
-});
 
 $("#flip-to-signup").click(function() {
   $("#login-box").attr("style", "display: none;");
@@ -30,4 +29,8 @@ $("#flip-to-login").click(function() {
   console.log("test");
   $("#signup-box").attr("style", "display: none;");
   $("#login-box").removeAttr(`style`);
+});
+
+$("#moved_org").append($(".Organizer"))
+
 });
