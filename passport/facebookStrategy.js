@@ -7,7 +7,8 @@ passport.use(
     {
       clientID: 553634161737995,
       clientSecret: "854eec2a4638eed8dbf583bbd39375ca",
-      callbackURL: "http://localhost:3000/auth/facebook/callback",
+      callbackURL:
+        "https://helpinghands-ironhack.herokuapp.com/auth/facebook/callback",
       profileFields: ["displayName", "email", "picture.type(large)"]
     },
     function(accessToken, refreshToken, profile, done) {
