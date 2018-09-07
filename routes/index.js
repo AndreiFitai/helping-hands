@@ -22,9 +22,7 @@ router.get(
     User.find({ _id: req.params.id }).then(data => {
       let edit = false;
       const curr_user_id = JSON.stringify(req.user._id).replace(/['"]+/g, "");
-      if (req.params.id === curr_user_id) {
-        edit = true;
-      }
+      if (req.params.id === curr_user_id) edit = true;
       const user_data = data[0];
       res.render("user-profile", { user_data, edit });
     });
@@ -75,14 +73,4 @@ router.post(
   }
 );
 
-router.get("/organization", ensureLoggedIn("/auth/login"), (req, res, next) => {
-  res.render("organization");
-});
-
-router.get("/about", (req, res, next) => {
-  res.render("about");
-});
-
 module.exports = router;
-
-//algolia

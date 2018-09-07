@@ -14,24 +14,33 @@ router.get("/create-event", ensureLoggedIn("/auth/login"), (req, res, next) => {
 
 router.get("/event/:id", (req, res, next) => {
   const _id = req.params.id;
-  let eventData;
+  const curr_user_id = JSON.stringify(req.user._id).replace(/['"]+/g, "");
   Event.findById({
     _id
   }).then(data => {
-    eventData = data;
+    const eventData = data;
+    let notOrganizer = true;
+    let joined = false;
     const promiseChain = [];
     const partArr = data.participants;
     for (let x = 0; x < partArr.length; x++) {
       promiseChain.push(
         User.findById({ _id: partArr[x]._id }).then(result => {
           result.role = partArr[x].role;
-          console.log(result);
+          result.name = result.name.split(" ");
+          if (curr_user_id == partArr[x]._id) joined = true;
           return result;
         })
       );
     }
+    if (curr_user_id == partArr[0]._id) notOrganizer = false;
     Promise.all(promiseChain).then(particArr => {
-      res.render("event-single", { eventData, particArr });
+      res.render("event-single", {
+        eventData,
+        particArr,
+        notOrganizer,
+        joined
+      });
     });
   });
 });
@@ -93,17 +102,26 @@ router.get("/list", (req, res, next) => {
 });
 
 router.post("/list", (req, res, next) => {
-  Event.find({
-    $and: [
-      { $text: { $search: req.body.keyword } },
-      {
-        $and: [
-          { date: { $gte: req.body.from } },
-          { date: { $lte: req.body.to } }
-        ]
-      }
-    ]
-  }).then(data => {
+  let search_params;
+  if (!req.body.keyword) {
+    search_params = {
+      $and: [{ date: { $gte: req.body.from } }, { date: { $lte: req.body.to } }]
+    };
+  } else {
+    search_params = {
+      $and: [
+        { $text: { $search: req.body.keyword } },
+        {
+          $and: [
+            { date: { $gte: req.body.from } },
+            { date: { $lte: req.body.to } }
+          ]
+        }
+      ]
+    };
+  }
+
+  Event.find(search_params).then(data => {
     console.log(data);
     res.render("event-multi", { data });
   });
