@@ -1,20 +1,24 @@
 <div class="card" style="width: 18rem;">
-  <a href="/events/event/{{_id}}"><img class="card-img-top" src="{{pictures.path}}" alt="Card image cap"></a>
+
+  <a href="/events/event/{{_id}}"><img class="card-img-top" src="{{pictures.path}}" alt="Card image cap" /></a>
 
   <div class="card-body">
+
     <h5 class="card-title">{{title}}</h5>
     <p class="card-text">{{short_description}}</p>
-  </div>
 
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{date}}</li>
-    <li class="list-group-item">{{time}}</li>
-    <li class="list-group-item">{{address}},{{city}}</li>
-  </ul>
+    <div class="list">
+      <div id="card-time">
+        <p>{{date}}</p>
+        <p>{{time}}</p>
+      </div>
+        <p>{{address}}</p>
+        <p>{{city}}</p>
+    </div>
 
-  <div class="card-body">
     <form action="/events/event/{{_id}}">
       <button type="submit">Read More</button>
     </form>
+
   </div>
 </div>

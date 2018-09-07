@@ -4,7 +4,6 @@
 @import "events";
 @import "users";
 
-
 #user-pic-round {
   width: 50px;
   height: 50px;
@@ -28,7 +27,7 @@ a {
   margin: 10px 0;
 }
 .link:hover {
-  color: $orange
+  color: $orange;
 }
 
 @keyframes linkhover {
@@ -120,10 +119,23 @@ body {
       justify-content: space-between;
       align-items: center;
 
-      #nav-logo {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 700;
-        color: $grey;
+      #logo-container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        #nav-img {
+          height: 50px;
+          img {
+            height: 100%;
+          }
+        }
+
+        #nav-logo {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 700;
+          color: $grey;
+        }
       }
 
       ul {
@@ -209,7 +221,8 @@ input[type="date"] {
 input[type="date"]:focus {
   color: black;
 }
-select, input[type="file"] {
+select,
+input[type="file"] {
   border: none;
 }
 
@@ -243,10 +256,9 @@ button:hover {
   background-color: $turquoise;
 }
 
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
 }

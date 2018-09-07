@@ -15,7 +15,6 @@
     <div class="info">
       <h2>What we're changing</h2>
       <p>{{eventData.description}}</p>
-
       <h2>What we'll need</h2>
       <p>{{eventData.needs.need_desc}}</p>
       <p>We need at least {{eventData.needs.amount_of_ppl}} Pairs of helping hands!</p>
@@ -41,7 +40,7 @@
       <span>Sports</span>
       {{/if}}
     </div>
-    
+
     <div class="container-participants">
       {{#each particArr}}
       <a href="/user-profile/{{this._id}}"><img src="{{this.picture}}" alt="profile-pic" id="user-pic-round"></a>
@@ -56,6 +55,7 @@
     </form>
   </div>
 </div>
+
 <div class="map" id="map-single"></div>
 <script type="text/javascript" src="/javascripts/singleMap.js"></script>
 <script>
