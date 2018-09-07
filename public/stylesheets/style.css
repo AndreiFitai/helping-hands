@@ -12690,7 +12690,6 @@ a.text-dark:hover, a.text-dark:focus {
   .event-preview .card-columns {
     width: 80vw; }
   .event-preview h2 {
-    color: white;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 1.2em;
@@ -25368,14 +25367,14 @@ a.text-dark:hover, a.text-dark:focus {
     margin-bottom: 20px;
     border-top: 1px solid black;
     border-bottom: 1px solid black; }
-  .event-single p {
-    font-style: italic;
-    margin: 1vh 0; }
 
-h2 {
-  font-weight: 700;
-  font-size: 1.2em;
-  line-height: 3em; }
+    .event-single .practical p {
+      font-style: italic;
+      margin: 1vh 0; }
+  .event-single h2 {
+    font-weight: 700;
+    font-size: 1.2em;
+    line-height: 3em; }
 
 .container-participants {
   display: flex;
@@ -25424,6 +25423,34 @@ h2 {
 .card img {
   height: 200px;
   object-fit: cover; }
+
+.card h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9em; }
+
+.card .card-body {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: none; }
+  .card .card-body p {
+    margin: 1.5vh 0;
+    font-size: 0.8em; }
+  .card .card-body .list {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center; }
+    .card .card-body .list #card-time {
+      border-top: 1px solid lightgrey;
+      border-bottom: 1px solid lightgrey; }
+    .card .card-body .list div {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around; }
+  .card .card-body button {
+    margin-top: 10px; }
 
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
@@ -31870,10 +31897,18 @@ body {
       flex-flow: row nowrap;
       justify-content: space-between;
       align-items: center; }
-      body nav #nav-links #nav-logo {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 700;
-        color: #747474; }
+      body nav #nav-links #logo-container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center; }
+        body nav #nav-links #logo-container #nav-img {
+          height: 50px; }
+          body nav #nav-links #logo-container #nav-img img {
+            height: 100%; }
+        body nav #nav-links #logo-container #nav-logo {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 700;
+          color: #747474; }
       body nav #nav-links ul {
         list-style: none;
         margin-bottom: 0; }
@@ -31940,7 +31975,8 @@ input[type="date"] {
 input[type="date"]:focus {
   color: black; }
 
-select, input[type="file"] {
+select,
+input[type="file"] {
   border: none; }
 
 .tag {
