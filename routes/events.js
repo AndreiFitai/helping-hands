@@ -24,6 +24,8 @@ router.get("/event/:id", (req, res, next) => {
     for (let x = 0; x < partArr.length; x++) {
       promiseChain.push(
         User.findById({ _id: partArr[x]._id }).then(result => {
+          result.role = partArr[x].role;
+          console.log(result);
           return result;
         })
       );
@@ -91,17 +93,6 @@ router.get("/list", (req, res, next) => {
 });
 
 router.post("/list", (req, res, next) => {
-  // console.log(req.body)
-
-  // need: req.body.need,
-  // sports: req.body.sports,
-  // charity: req.body.charity,
-  // local: req.body.local,
-  // lgbt: req.body.lgbt,
-  // artistical: req.body.artistical,
-  // politics: req.body.politics,
-  // educational: req.body.educational,
-
   Event.find({
     $and: [
       { $text: { $search: req.body.keyword } },
