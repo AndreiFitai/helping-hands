@@ -27,7 +27,8 @@ router.get("/event/:id", (req, res, next) => {
       promiseChain.push(
         User.findById({ _id: partArr[x]._id }).then(result => {
           result.role = partArr[x].role;
-          result.name = result.name.split(" ");
+          const name = result.name.split(" ");
+          result.name = name[0];
           if (curr_user_id == partArr[x]._id) joined = true;
           return result;
         })

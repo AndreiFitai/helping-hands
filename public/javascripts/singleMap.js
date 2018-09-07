@@ -224,7 +224,6 @@ var mapStyle = [
 ];
 
 function startMap(data) {
-  console.log(data);
   const center = {
     lat: data.location.coordinates[1],
     lng: data.location.coordinates[0]
